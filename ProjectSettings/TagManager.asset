@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Shootable
+  - ground
+  - Player_Building
+  - Player_Unit
   layers:
   - Default
   - TransparentFX
@@ -20,8 +23,8 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - ground
+  - Sea
   - 
   - 
   - 
