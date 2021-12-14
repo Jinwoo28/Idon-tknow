@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f0afabb0afacf145ae73b680181bff3, type: 3}
+  m_Name: A_Build_ButtonList
+  m_EditorClassIdentifier: 
+  basicUnits: []
+  UP_button: []
+  Behavior: []
+  basicBuildings:
+  - {fileID: 11400000, guid: 70d948cc719a87e45938001603785b95, type: 2}
+  - {fileID: 11400000, guid: 29bcb0335121cf74b99c3291a2e0e8a1, type: 2}
+  - {fileID: 11400000, guid: 1a68d8204b4131948a21af3776b5927a, type: 2}
+  - {fileID: 11400000, guid: a6c68069095cf5f43b8732b379777566, type: 2}
+  Behavor2:
+  - {fileID: 11400000, guid: a734ec83d19f7b44c8814793a87d63a7, type: 2}
+  - {fileID: 11400000, guid: a734ec83d19f7b44c8814793a87d63a7, type: 2}
+  - {fileID: 11400000, guid: a734ec83d19f7b44c8814793a87d63a7, type: 2}
+  - {fileID: 11400000, guid: a734ec83d19f7b44c8814793a87d63a7, type: 2}
+  - {fileID: 11400000, guid: c2a0802dcaf19734b831a385ebaeeaed, type: 2}

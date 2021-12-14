@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f0afabb0afacf145ae73b680181bff3, type: 3}
+  m_Name: StarPort_ButtonList
+  m_EditorClassIdentifier: 
+  basicUnits:
+  - {fileID: 11400000, guid: 9bf0a7f72abb5754092ea3c89bd953d3, type: 2}
+  - {fileID: 11400000, guid: 9636358a9dca0e741b8b0235aa48b610, type: 2}
+  - {fileID: 11400000, guid: 7dabfa2fad02c1a49bbf0fe326751b79, type: 2}
+  - {fileID: 11400000, guid: 18f6892a39689394693d458e297f85cc, type: 2}
+  - {fileID: 11400000, guid: c2fdad7783b912644980d67940693ae6, type: 2}
+  UP_button: []
+  Behavior:
+  - {fileID: 11400000, guid: f3f394dca348c0f4abbc565cb151fef2, type: 2}
+  basicBuildings:
+  - {fileID: 11400000, guid: 7e9fe6085e8ed95429688da1caeab9a6, type: 2}
+  Behavor2:
+  - {fileID: 11400000, guid: a734ec83d19f7b44c8814793a87d63a7, type: 2}
+  - {fileID: 11400000, guid: 066caa8856bbfc6429868663631ed057, type: 2}
