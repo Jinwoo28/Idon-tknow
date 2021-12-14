@@ -179,7 +179,7 @@ public class PathFinding : MonoBehaviour
             if (Physics.Raycast(ray, out hit, 100f))
             {
                 Vector3 hitPos = hit.point;
-                GameObject item = Instantiate(TargetPos, hit.point, Quaternion.identity);
+                //GameObject item = Instantiate(TargetPos, hit.point, Quaternion.identity);
                 //마우스에서 Ray를 쏴서 맞은 곳에 오브젝트를 생성
                 //목적지를 시각화 하기 위한 오브젝트
 
