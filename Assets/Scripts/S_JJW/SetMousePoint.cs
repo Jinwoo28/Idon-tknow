@@ -41,6 +41,8 @@ public class SetMousePoint : MonoBehaviour
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
+
+       // int layerMask = (1 << LayerMask.NameToLayer("ground")) + (1 << LayerMask.NameToLayer("Sea"));
         if (Physics.Raycast(ray, out hit, Mathf.Infinity))
         {
              if (Input.GetMouseButtonDown(1))
@@ -73,7 +75,6 @@ public class SetMousePoint : MonoBehaviour
                 if (hit.collider.CompareTag("Player_Building") || hit.collider.CompareTag("Player_Unit"))
                 {
                     CursorChange(HcursorImg);
-                  //  Debug.Log("ºôµù");
                 }
                 else if (hit.collider.CompareTag("ground"))
                 {
