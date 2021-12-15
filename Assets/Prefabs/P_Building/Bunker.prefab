@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8181976957458200670}
   - component: {fileID: 8209393587457080634}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: Highlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,7 +146,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8895620086425634492}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: Bunker
   m_TagString: Player_Building
   m_Icon: {fileID: 0}
@@ -180,17 +180,17 @@ PrefabInstance:
     - target: {fileID: 1886613106885978279, guid: 4112df0717e1b1040bc4600f7025c7f8,
         type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3117631714811628256, guid: 4112df0717e1b1040bc4600f7025c7f8,
         type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4926230045549689937, guid: 4112df0717e1b1040bc4600f7025c7f8,
         type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7792317812184769075, guid: 4112df0717e1b1040bc4600f7025c7f8,
         type: 3}
@@ -337,12 +337,12 @@ PrefabInstance:
     - target: {fileID: -7648502956408741331, guid: 77d54ab9bae18d8479667f24f07cf986,
         type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -6148585061576865867, guid: 77d54ab9bae18d8479667f24f07cf986,
         type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 77d54ab9bae18d8479667f24f07cf986,
         type: 3}
@@ -352,7 +352,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 77d54ab9bae18d8479667f24f07cf986,
         type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 77d54ab9bae18d8479667f24f07cf986,
         type: 3}
@@ -372,7 +372,7 @@ PrefabInstance:
     - target: {fileID: 3685948651279665671, guid: 77d54ab9bae18d8479667f24f07cf986,
         type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77d54ab9bae18d8479667f24f07cf986, type: 3}

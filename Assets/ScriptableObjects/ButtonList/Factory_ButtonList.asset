@@ -16,11 +16,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 78f91496a80966b4fb6a9cd61e98b7d2, type: 2}
   - {fileID: 11400000, guid: a7da0412ca30d9340a4f62136367fdd8, type: 2}
   - {fileID: 11400000, guid: e9a4bdc37dd4ae54886042fc9ef4adf3, type: 2}
+  UP_button: []
+  Behavior:
+  - {fileID: 11400000, guid: f2646fe20985fcd40805dcfd7b649385, type: 2}
+  - {fileID: 11400000, guid: f2646fe20985fcd40805dcfd7b649385, type: 2}
+  - {fileID: 11400000, guid: f3f394dca348c0f4abbc565cb151fef2, type: 2}
   basicBuildings:
   - {fileID: 11400000, guid: 9cf14c2a9d9e36849add3593ef71dad8, type: 2}
-  Behavior:
-  - {fileID: 11400000, guid: 4010b99d33c62f6489c08feb8a57395a, type: 2}
-  - {fileID: 11400000, guid: 4010b99d33c62f6489c08feb8a57395a, type: 2}
-  - {fileID: 11400000, guid: aa948840347f8f74e814afb86803695a, type: 2}
-  - {fileID: 11400000, guid: 4010b99d33c62f6489c08feb8a57395a, type: 2}
-  - {fileID: 11400000, guid: aa948840347f8f74e814afb86803695a, type: 2}
+  Behavor2:
+  - {fileID: 11400000, guid: a734ec83d19f7b44c8814793a87d63a7, type: 2}
+  - {fileID: 11400000, guid: 066caa8856bbfc6429868663631ed057, type: 2}

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4910182580143959046}
   - component: {fileID: 7510986906733805346}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: Highlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -82,6 +82,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!65 &8621504164728276103
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7932864182745627917}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.017097196, y: 0.013301401, z: 0.009284816}
+  m_Center: {x: -0.00009550945, y: 0.00067058846, z: 0.004707035}
 --- !u!114 &4954410181673529592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,19 +137,6 @@ MonoBehaviour:
     building: 0
     spawn: 0
   statDisplay: {fileID: 6121112188831713680}
---- !u!65 &8621504164728276103
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7932864182745627917}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.017097196, y: 0.013301401, z: 0.009284816}
-  m_Center: {x: -0.00009550945, y: 0.00067058846, z: 0.004707035}
 --- !u!1 &8102080419826144837
 GameObject:
   m_ObjectHideFlags: 0
@@ -146,7 +146,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2248979310930604071}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: ScanAddOn
   m_TagString: Player_Building
   m_Icon: {fileID: 0}
@@ -180,17 +180,17 @@ PrefabInstance:
     - target: {fileID: 1886613106885978279, guid: 4112df0717e1b1040bc4600f7025c7f8,
         type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3117631714811628256, guid: 4112df0717e1b1040bc4600f7025c7f8,
         type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4926230045549689937, guid: 4112df0717e1b1040bc4600f7025c7f8,
         type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7792317812184769075, guid: 4112df0717e1b1040bc4600f7025c7f8,
         type: 3}
@@ -342,7 +342,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 266d5a02871b1b04cbd8998aff64856e,
         type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 266d5a02871b1b04cbd8998aff64856e,
         type: 3}

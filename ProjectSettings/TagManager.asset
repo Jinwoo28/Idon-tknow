@@ -8,15 +8,16 @@ TagManager:
   - ground
   - Player_Building
   - Player_Unit
+  - UI
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Building
   - Water
   - UI
-  - 
-  - 
+  - Unit
+  - ObjectPonit
   - Lighting
   - Ground
   - Postprocessing

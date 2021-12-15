@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!65 &8221904067019137599
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1648040400992838502}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.014239667, y: 0.012775548, z: 0.010882857}
+  m_Center: {x: -0.00021898816, y: 0.0064502507, z: -0.00024138995}
 --- !u!114 &793081399025109070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42,19 +55,6 @@ MonoBehaviour:
   playerUnits: {fileID: 0}
   actions: {fileID: 0}
   MaxMarkerDistance: 10
---- !u!65 &8221904067019137599
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1648040400992838502}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.014239667, y: 0.012775548, z: 0.010882857}
-  m_Center: {x: -0.00021898816, y: 0.0064502507, z: -0.00024138995}
 --- !u!1 &2072186123406382946
 GameObject:
   m_ObjectHideFlags: 0
@@ -65,7 +65,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1388775464916648760}
   - component: {fileID: 8098279799116979579}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: Highlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,7 +146,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3377740945868289500}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: 'PhysicsLab '
   m_TagString: Player_Building
   m_Icon: {fileID: 0}
@@ -180,17 +180,17 @@ PrefabInstance:
     - target: {fileID: 1886613106885978279, guid: 4112df0717e1b1040bc4600f7025c7f8,
         type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3117631714811628256, guid: 4112df0717e1b1040bc4600f7025c7f8,
         type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4926230045549689937, guid: 4112df0717e1b1040bc4600f7025c7f8,
         type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7792317812184769075, guid: 4112df0717e1b1040bc4600f7025c7f8,
         type: 3}
@@ -342,7 +342,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: dfe927796b8455148af379d6b74eb3cb,
         type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: dfe927796b8455148af379d6b74eb3cb,
         type: 3}
