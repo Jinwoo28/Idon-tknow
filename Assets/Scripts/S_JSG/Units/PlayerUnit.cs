@@ -64,6 +64,11 @@ namespace Units.Player
 
         private bool isMove;
 
+
+       
+
+
+        
         private void Awake()
         {
             camera = Camera.main;

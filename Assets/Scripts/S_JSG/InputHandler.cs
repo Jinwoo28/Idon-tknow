@@ -124,6 +124,23 @@ namespace InputManager
                         case 9: //enemy untis layer
 
                             break;
+
+                        case 25:
+
+                            for (int i = 0; selectedUnits[i]; i++)
+                            {
+                                if (selectedUnits[i].GetComponent<PlayerUnit>().unitType.name == "SCV")
+                                {
+                                    //미네랄을 캐자
+                                    //selectedUnits[i].GetComponent<scv>().
+                                    GameObject min = hit.transform.gameObject;
+
+
+                                }
+
+                            }
+
+                            break;
                         default:
                             foreach (Transform unit in selectedUnits)
                             {
