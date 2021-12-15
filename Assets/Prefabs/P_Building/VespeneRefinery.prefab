@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3564405945875760992}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: VespeneRefinery
   m_TagString: Player_Building
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7704707980665325314}
   - component: {fileID: 917981629044864842}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: Highlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,6 +115,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!65 &6313888785543634033
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8605926072804982834}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.023891171, y: 0.01792197, z: 0.014376488}
+  m_Center: {x: 0.0000036815181, y: -0.00023977035, z: 0.007214612}
 --- !u!114 &3068371269924918705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,19 +170,6 @@ MonoBehaviour:
     building: 0
     spawn: 0
   statDisplay: {fileID: 0}
---- !u!65 &6313888785543634033
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8605926072804982834}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.023891171, y: 0.01792197, z: 0.014376488}
-  m_Center: {x: 0.0000036815181, y: -0.00023977035, z: 0.007214612}
 --- !u!1001 &7494076171397084979
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -185,17 +185,17 @@ PrefabInstance:
     - target: {fileID: 1886613106885978279, guid: 4112df0717e1b1040bc4600f7025c7f8,
         type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3117631714811628256, guid: 4112df0717e1b1040bc4600f7025c7f8,
         type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4926230045549689937, guid: 4112df0717e1b1040bc4600f7025c7f8,
         type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7792317812184769075, guid: 4112df0717e1b1040bc4600f7025c7f8,
         type: 3}
@@ -335,7 +335,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: c593fe50cee992c47840967cce9815ff,
         type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c593fe50cee992c47840967cce9815ff,
         type: 3}

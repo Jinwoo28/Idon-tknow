@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!65 &6605630937817070657
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1530533554910299602}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.016794572, y: 0.0128069185, z: 0.019650944}
+  m_Center: {x: 0.008577119, y: 0.00006766827, z: 0.000036099926}
 --- !u!114 &336883765953551440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42,19 +55,6 @@ MonoBehaviour:
     building: 0
     spawn: 0
   statDisplay: {fileID: 1634690296455971905}
---- !u!65 &6605630937817070657
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1530533554910299602}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.016794572, y: 0.0128069185, z: 0.019650944}
-  m_Center: {x: 0.008577119, y: 0.00006766827, z: 0.000036099926}
 --- !u!1 &7037554027606280480
 GameObject:
   m_ObjectHideFlags: 0
@@ -65,7 +65,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3055930941456021772}
   - component: {fileID: 4455221412080771159}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: Highlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,7 +146,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1543980980233096185}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: NuclearAddOn
   m_TagString: Player_Building
   m_Icon: {fileID: 0}
@@ -260,7 +260,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: c76f5356061f7d042aac91c8d7630276,
         type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c76f5356061f7d042aac91c8d7630276,
         type: 3}
@@ -291,17 +291,17 @@ PrefabInstance:
     - target: {fileID: 1886613106885978279, guid: 4112df0717e1b1040bc4600f7025c7f8,
         type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3117631714811628256, guid: 4112df0717e1b1040bc4600f7025c7f8,
         type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4926230045549689937, guid: 4112df0717e1b1040bc4600f7025c7f8,
         type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7792317812184769075, guid: 4112df0717e1b1040bc4600f7025c7f8,
         type: 3}

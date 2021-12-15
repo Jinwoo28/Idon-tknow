@@ -102,7 +102,7 @@ RectTransform:
   m_GameObject: {fileID: 4285337957525539783}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_Children:
   - {fileID: 5690232687603746844}
   m_Father: {fileID: 0}
@@ -143,7 +143,7 @@ MonoBehaviour:
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 21300000, guid: 7a56d04b68bf4494182e4b0a8a7cc292, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 36e88fa119ad7ea4a871975fc0a750f0, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 21300000, guid: def4dcf2d558a634fbaf629ee87306d9, type: 3}
   m_AnimationTriggers:
