@@ -16,6 +16,7 @@ public class SetMousePoint : MonoBehaviour
 
     private bool isAtk = false;
 
+    // 테스트 확인용 주석 
     void Start()
     {
         NomalMousePoint.SetActive(false);
