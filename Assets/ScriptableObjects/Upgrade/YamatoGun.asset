@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfcda3d9ac87e104b884d7751d80fb5a, type: 3}
   m_Name: YamatoGun
   m_EditorClassIdentifier: 
-  icon: {fileID: 5392786933212251445, guid: 0aa1d3d404cbfbe4f8c2f1c6eb7897da, type: 3}
+  icon: {fileID: 5392786933212251445, guid: ec167cd13946ebb49836ecfdea1b0f3a, type: 3}
   name: YamatoGun
   mineral: 100
   gas: 100
