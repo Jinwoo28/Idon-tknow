@@ -54,6 +54,13 @@ public class PathFinding : MonoBehaviour
     //유닛의 장애물 판정을 위한 변수
     UnitObsTest UO = null;
 
+    //==========================================
+    //유닛의 AI를 위한 bool 변수
+
+    private bool isHold;
+    private bool isMoving;
+    private Vector3[] PatrolPoint;
+
 
     private void Start()
     {

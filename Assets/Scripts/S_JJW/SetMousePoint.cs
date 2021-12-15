@@ -7,13 +7,14 @@ using UnityEngine;
 public class SetMousePoint : MonoBehaviour
 {
     [SerializeField] private GameObject NomalMousePoint = null;
+    [SerializeField] private GameObject AomalMousePoint = null;
 
     [SerializeField] private Texture2D NcursorImg = null;
     [SerializeField] private Texture2D AcursorImg = null;
     [SerializeField] private Texture2D HcursorImg = null;
 
 
-
+    private bool isAtk = false;
 
     void Start()
     {
@@ -41,29 +42,45 @@ public class SetMousePoint : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, Mathf.Infinity))
         {
-            Debug.Log("ww");
-            if (Input.GetMouseButtonDown(1))
+             if (Input.GetMouseButtonDown(1))
             {
                 NomalMousePoint.SetActive(false);
                 NomalMousePoint.transform.position = hit.point;
                 NomalMousePoint.SetActive(true);
+                isAtk = false;
             }
 
-                
-            if(hit.collider.CompareTag("Player_Building")|| hit.collider.CompareTag("Player_Unit"))
+            if (Input.GetMouseButtonDown(0) && isAtk)
             {
-                CursorChange(HcursorImg);
-                Debug.Log("ºôµù");
+                AomalMousePoint.SetActive(false);
+                AomalMousePoint.transform.position = hit.point;
+                AomalMousePoint.SetActive(true);
+                isAtk = false;
             }
-            else if (hit.collider.CompareTag("ground"))
-            {
-                Debug.Log("ground");
-                CursorChange(NcursorImg);
-            }
-            else
+
+
+
+            if (Input.GetKeyDown(KeyCode.A)) isAtk = true;
+
+            if (isAtk)
             {
                 CursorChange(AcursorImg);
             }
+
+            else
+            {
+                if (hit.collider.CompareTag("Player_Building") || hit.collider.CompareTag("Player_Unit"))
+                {
+                    CursorChange(HcursorImg);
+                    Debug.Log("ºôµù");
+                }
+                else if (hit.collider.CompareTag("ground"))
+                {
+                    Debug.Log("ground");
+                    CursorChange(NcursorImg);
+                }
+            }
+        
 
         }
     }
