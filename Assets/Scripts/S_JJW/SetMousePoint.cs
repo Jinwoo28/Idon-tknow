@@ -23,7 +23,7 @@ public class SetMousePoint : MonoBehaviour
 //        NomalMousePoint.transform.localScale *= 15;
         
         Cursor.SetCursor(NcursorImg, new Vector2(13.5f, 10), CursorMode.ForceSoftware);
-        Debug.Log("dd");
+      //  Debug.Log("dd");
 
     }
 
@@ -73,11 +73,11 @@ public class SetMousePoint : MonoBehaviour
                 if (hit.collider.CompareTag("Player_Building") || hit.collider.CompareTag("Player_Unit"))
                 {
                     CursorChange(HcursorImg);
-                    Debug.Log("빌딩");
+                  //  Debug.Log("빌딩");
                 }
                 else if (hit.collider.CompareTag("ground"))
                 {
-                    Debug.Log("ground");
+                  //  Debug.Log("ground");
                     CursorChange(NcursorImg);
                 }
             }
@@ -88,7 +88,7 @@ public class SetMousePoint : MonoBehaviour
 
     private void CursorChange(Texture2D T2D)
     {
-        Debug.Log("커서변경");
+       // Debug.Log("커서변경");
        Cursor.SetCursor(T2D, new Vector2(13.5f, 10), CursorMode.ForceSoftware);
     }
 

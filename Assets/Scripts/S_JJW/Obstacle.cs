@@ -25,8 +25,8 @@ public class Obstacle : MonoBehaviour
 
         //StartCoroutine("SetBuildingObs");
         SetObstacle(isFlyBuilding);
-        Debug.Log(sizeX + " X size");
-        Debug.Log(sizeZ + " Z size");
+       // Debug.Log(sizeX + " X size");
+        //Debug.Log(sizeZ + " Z size");
     }
 
 

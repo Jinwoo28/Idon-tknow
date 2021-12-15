@@ -138,7 +138,7 @@ public class Grid : MonoBehaviour
             float Y = path[i].YDepthLB;
             float Z = path[i].gridY * cellsize + cellsize / 2;
 
-            Debug.Log("hihi");
+        //    Debug.Log("hihi");
 
             waypoints.Add(new Vector3(X, Y, Z));
         }

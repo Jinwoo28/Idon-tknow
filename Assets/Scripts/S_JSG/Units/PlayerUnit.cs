@@ -7,8 +7,9 @@ namespace Units.Player
 {
     public class PlayerUnit : MonoBehaviour
     {
-        enum _Mode
+       public enum _Mode
         {
+            IDlE,
             STOP,
             ATTACK,
             PATROL,
@@ -63,11 +64,21 @@ namespace Units.Player
 
 
         private bool isMove;
+        private bool isHold;
 
 
-       
+       public _Mode _mode { get; set; }
 
 
+        private void SetMode()
+        {
+            if (Input.GetKeyDown(KeyCode.H)) _mode = _Mode.HOLD;
+            if (Input.GetKeyDown(KeyCode.A)) _mode = _Mode.ATTACK;
+            if (Input.GetKeyDown(KeyCode.S)) _mode = _Mode.STOP;
+            if (Input.GetKeyDown(KeyCode.LeftShift)) _mode = _Mode.PATROL;
+            if (Input.GetKeyDown(KeyCode.M)) _mode = _Mode.MOVE;
+            Debug.Log(_mode);
+        }
         
         private void Awake()
         {
@@ -77,6 +88,8 @@ namespace Units.Player
         // Start is called before the first frame update
         void Start()
         {
+
+            _mode = _Mode.IDlE;
             baseStats = unitType.baseStats;
 
 
@@ -108,12 +121,16 @@ namespace Units.Player
             if (atkCooldown>=-1)
             atkCooldown -= Time.deltaTime;
 
-            MoveUnit();
+           // MoveUnit();
 
-            checkForEnemyTargets();
+            if (!isMove && !isHold)
+            {
+                checkForEnemyTargets();
+            }
 
             MoveToAggroTarget();
 
+            SetMode();
 
         }
         public void SetDestinatin(Vector3 dest) //목표지점
@@ -136,17 +153,19 @@ namespace Units.Player
         }
         private void checkForEnemyTargets() //범위안 타겟찾음
         {
-            rangeColliders = Physics.OverlapSphere(transform.position, baseStats.eyesight, UnitHandler.instance.eUnitLayer);
+           
+                rangeColliders = Physics.OverlapSphere(transform.position, baseStats.eyesight, UnitHandler.instance.eUnitLayer);
 
-            for (int i = 0; i < rangeColliders.Length;)
-            {
-                aggerTarget = rangeColliders[i].gameObject.transform;
-               // aggroUnit = aggerTarget.gameObject.GetComponentInChildren<UnitStatDisplay>();
-                atkUnit = aggerTarget.gameObject.GetComponent<Enemy.enemyUnit>();
+                for (int i = 0; i < rangeColliders.Length;)
+                {
+                    aggerTarget = rangeColliders[i].gameObject.transform;
+                    // aggroUnit = aggerTarget.gameObject.GetComponentInChildren<UnitStatDisplay>();
+                    atkUnit = aggerTarget.gameObject.GetComponent<Enemy.enemyUnit>();
 
-                hasAggero = true;
-                break;
-            }
+                    hasAggero = true;
+                    break;
+                }
+            
         }
 
         private void Attack()
