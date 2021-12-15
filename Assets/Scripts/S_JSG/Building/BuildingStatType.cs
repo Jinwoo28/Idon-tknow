@@ -11,6 +11,8 @@ namespace Building
         {
             public float mineral, gas, health, armor, eyesight;
 
+            public int supply;
+
 
             public enum size
             {

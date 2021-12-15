@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   name: SupplyDepot
-  buildingPrefab: {fileID: 677970269807502833, guid: 647a99a9acf74764a8c87f4e83aeb9e0, type: 3}
+  buildingPrefab: {fileID: 677970269807502833, guid: 647a99a9acf74764a8c87f4e83aeb9e0,
+    type: 3}
   icon: {fileID: 4285337957525539783, guid: b365789bac3062a46872e8b8d23e551a, type: 3}
   spawnTime: 40
   baseStats:
@@ -23,6 +24,7 @@ MonoBehaviour:
     health: 500
     armor: 1
     eyesight: 8
+    supply: 8
     building_size: 2
     ground: 1
     mechanic: 1

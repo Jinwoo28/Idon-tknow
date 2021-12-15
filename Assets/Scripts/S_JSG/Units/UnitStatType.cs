@@ -23,7 +23,8 @@ namespace Units
                 normal,
                 big
             }
-            public float mineral, gas, supply, health, armor, armorplus, eyesight, speed, maxmp, mp;
+            public int mineral, gas, supply;
+            public float  health, armor, armorplus, eyesight, speed, maxmp, mp;
             public float atkRange,atkspeed, attack,airattack, airattackrange,attackplus,airattackplus;
 
             public int DrodCount;

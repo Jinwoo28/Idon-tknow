@@ -90,12 +90,13 @@ namespace InputManager
                 foreach (Transform child in RTS.Player.playerManager.instance.playerUnits)
                 {
                     // foreach (Transform unit in child)
-                    {
+                    
                         if (iswithinSelectionBounds(child))//범위안에 유닛이 있을경우
                         {
-                            addeUnit(child, true); ;
+                         
+                            addeUnit(child.GetChild(0), true); ;
                         }
-                    }
+                    
                 }
                 isDragging = false;
             }
@@ -253,7 +254,7 @@ namespace InputManager
         public void UnitSpawn(string objectToSpwan)
         {
 
-
+            
             selectedBuilding.GetComponent<Building.BuildingSpawn>().StartSpawnTimer(objectToSpwan);
 
 

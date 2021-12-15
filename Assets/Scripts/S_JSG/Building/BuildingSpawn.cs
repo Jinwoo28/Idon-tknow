@@ -14,6 +14,8 @@ namespace Building
         public List<GameObject> spawnOrder = new List<GameObject>();
 
 
+        public Transform _Units;
+
 
 
         void Start()
@@ -45,6 +47,12 @@ namespace Building
             {
 
                 Units.BasicUnit unit = IsUnit(objectToSpwan);
+                if (RTS.Player.playerManager.instance.maxsupply < (RTS.Player.playerManager.instance.supply + unit.baseStats.supply) || RTS.Player.playerManager.instance.limitsupply < (RTS.Player.playerManager.instance.supply + unit.baseStats.supply)){
+                    Debug.Log("인구수 제한");
+                    return;
+
+                }
+
                 if (spawnOrder.Count < 5 && SpawnQueue.Count < 5)
                 {
 
@@ -110,10 +118,15 @@ namespace Building
         {
             GameObject spawnedObject = Instantiate(spawnOrder[0], new Vector3(spawnMakrer.transform.position.x,
                 spawnMakrer.transform.position.y, spawnMakrer.transform.position.z), Quaternion.identity);
-            Units.Player.PlayerUnit pu = spawnedObject.GetComponent<Units.Player.PlayerUnit>();
+            // Units.Player.PlayerUnit pu = spawnedObject.GetComponent<Units.Player.PlayerUnit>();
             //pu.transform.SetParent(GameObject.Find("P_" + pu.unitType.type.ToString() + "s").transform);
-            //pu.transform.SetParent(RTS.Player.playerManager.instance.playerUnits);
+            //pu.transform.SetParent(_Units.transform);
+            // pu.transform.SetParent(GameObject.Find("PlayerUnits").transform);
 
+            spawnedObject.transform.SetParent(RTS.Player.playerManager.instance.playerUnits);
+
+
+            
             //spawnedObject.GetComponent<Units.Player.PlayerUnit>().SetDestinatin(spawnMakrer2.transform.position);  생산후 이동
             // SpawnQueue.Remove(SpawnQueue[0]);
             spawnOrder.Remove(spawnOrder[0]);

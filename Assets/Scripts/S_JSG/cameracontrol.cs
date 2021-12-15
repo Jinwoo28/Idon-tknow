@@ -45,7 +45,7 @@ public class cameracontrol : MonoBehaviour
         pos.y -= scroll * scrolspeed * 100f * Time.deltaTime;
 
         pos.x = Mathf.Clamp(pos.x, -limit.x, limit.x);
-        pos.y = 3.0f;
+        pos.y = Mathf.Clamp(pos.y, miny, maxy);
         pos.z = Mathf.Clamp(pos.z, -limit.y, limit.y);
 
         transform.position = pos;

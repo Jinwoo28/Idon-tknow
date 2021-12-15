@@ -87,10 +87,13 @@ namespace Units.Player
             eyesight = baseStats.eyesight;
 
 
+            statDisplay.SetStatatDisplayUnit(baseStats, true);
+
+
+            RTS.Player.playerManager.instance.supply += baseStats.supply;
           
 
 
-            statDisplay.SetStatatDisplayUnit(baseStats, true);
 
         }
 
@@ -280,6 +283,8 @@ namespace Units.Player
 
             }
         }
+
+       
 
     }
 }

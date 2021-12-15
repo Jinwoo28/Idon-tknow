@@ -16,6 +16,10 @@ namespace RTS.Player
         public Transform playerBuildings;
 
 
+        public int limitsupply = 200;
+        public int maxsupply;
+        public int supply;
+
         
         public int B_atkUpCount, B_armorUpCount, M_GroundatkUpCount, M_GroundarmorUpCount, M_AiratkUpCount, M_AirarmorUpCount;
 
@@ -30,6 +34,12 @@ namespace RTS.Player
         public bool WraithMpCheck;
         public bool ScineVesselMpCheck;
         public bool BattleCruiserMpCheck;
+
+
+        //건물체크
+        public bool b_academy, b_barracks, b_armory, b_commendcenter, b_coverops, b_engineeringbay, b_factory, b_factoryaddon, b_nuclearaddon, b_physicslab, b_scanaddon, b_scincefacility,
+           b_starport, b_starportaddon;
+
 
 
         private void Awake()
@@ -141,6 +151,6 @@ namespace RTS.Player
             M_AirarmorUpCount++;
         }
 
-
+       
     }
 }
