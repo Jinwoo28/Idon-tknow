@@ -47,21 +47,24 @@ namespace Building
             {
 
                 Units.BasicUnit unit = IsUnit(objectToSpwan);
-                if (RTS.Player.playerManager.instance.maxsupply < (RTS.Player.playerManager.instance.supply + unit.baseStats.supply) || RTS.Player.playerManager.instance.limitsupply < (RTS.Player.playerManager.instance.supply + unit.baseStats.supply)){
+                if (RTS.Player.playerManager.instance.maxsupply < (RTS.Player.playerManager.instance.supply + unit.baseStats.supply) || RTS.Player.playerManager.instance.limitsupply < (RTS.Player.playerManager.instance.supply + unit.baseStats.supply))
+                {
                     Debug.Log("인구수 제한");
                     return;
 
                 }
-
-                if (spawnOrder.Count < 5 && SpawnQueue.Count < 5)
-                {
-
-                    SpawnQueue.Add(unit.spawnTime);
-                    spawnOrder.Add(unit.unitPrefab);
-                }
                 else
                 {
-                    Debug.Log("full");
+                    if (spawnOrder.Count < 5 && SpawnQueue.Count < 5)
+                    {
+
+                        SpawnQueue.Add(unit.spawnTime);
+                        spawnOrder.Add(unit.unitPrefab);
+                    }
+                    else
+                    {
+                        Debug.Log("full");
+                    }
                 }
             }
             else if (Isbuilding(objectToSpwan))

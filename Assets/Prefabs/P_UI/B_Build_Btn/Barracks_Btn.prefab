@@ -86,6 +86,7 @@ GameObject:
   - component: {fileID: 2833436559795816387}
   - component: {fileID: 1742884022168756326}
   - component: {fileID: 5126544096818761811}
+  - component: {fileID: 2752414733670835897}
   m_Layer: 5
   m_Name: Barracks_Btn
   m_TagString: Untagged
@@ -181,3 +182,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1198e60580f1544e8a1030a6ef1b911, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2752414733670835897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4285337957525539783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5be6f4fa26a0f294ca9a15b81fa2b369, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 0}
