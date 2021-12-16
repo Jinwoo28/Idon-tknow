@@ -15,6 +15,7 @@ public class cameracontrol : MonoBehaviour
     public Vector2 limit;
 
     [SerializeField] private Camera MiniCam = null;
+    [SerializeField] LayerMask mask;
 
 
     void Start()
@@ -51,6 +52,32 @@ public class cameracontrol : MonoBehaviour
         pos.z = Mathf.Clamp(pos.z, 0, 120);
 
         transform.position = pos;
+
+        MoveToMinimapPos();
+    }
+
+
+    public void MoveToMinimapPos()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        Debug.Log("ddd");
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+            {
+                var hitpoint = hit.point;
+
+                Ray sconRay = MiniCam.ViewportPointToRay(hitpoint);
+
+                RaycastHit worldHit; ;
+                if (Physics.Raycast(sconRay, out worldHit, MiniCam.farClipPlane)) ;
+                Vector3 Pos = new Vector3(worldHit.point.x, this.transform.position.y, worldHit.point.z);
+                this.transform.position = Pos;
+                Debug.Log("2222");
+            }
+   
+        }
     }
 
     private void CamPosSet()
@@ -61,7 +88,7 @@ public class cameracontrol : MonoBehaviour
         RaycastHit hit;
         if(Physics.Raycast(ray,out hit))
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButton(0))
             {
                 thisPos.x = hit.point.x;
                 thisPos.z = hit.point.z;

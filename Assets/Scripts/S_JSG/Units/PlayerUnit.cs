@@ -81,7 +81,7 @@ namespace Units.Player
             if (Input.GetKeyDown(KeyCode.M)) SwitchMode(_Mode.MOVE);
         }
 
-        private void SwitchMode(_Mode UM)
+        public void SwitchMode(_Mode UM)
         {
             _mode = UM;
         }
@@ -169,12 +169,14 @@ namespace Units.Player
             
                 rangeColliders = Physics.OverlapSphere(transform.position, baseStats.eyesight, UnitHandler.instance.eUnitLayer);
 
+
                 for (int i = 0; i < rangeColliders.Length;)
                 {
                     aggerTarget = rangeColliders[i].gameObject.transform;
+                
                     // aggroUnit = aggerTarget.gameObject.GetComponentInChildren<UnitStatDisplay>();
                     atkUnit = aggerTarget.gameObject.GetComponent<Enemy.enemyUnit>();
-                Debug.Log("유닛 찾음");
+                    
                     hasAggero = true;
                     break;
                 }
@@ -226,6 +228,8 @@ namespace Units.Player
            
         }
 
+        private bool Searching = true;
+
         private void MoveToAggroTarget() //타겟을 찾으면 따라감
         {
             if (aggerTarget == null)
@@ -235,18 +239,27 @@ namespace Units.Player
 
             else
             {
-                distance = Vector3.Distance(aggerTarget.position, transform.position);
-
                 if (distance <= baseStats.eyesight)
                 {
-                    Debug.Log("이동");
-                    PF.ResetPathFind(aggerTarget.position);
+                    //if (Searching && _mode!=_Mode.ATTACK)
+                    //{
+                    //    Debug.Log("이동");
+                    //    StartCoroutine("ReSetTargetPos");
+                    //}
+
                 }
             }
 
 
         }
         
+        IEnumerator ReSetTargetPos()
+        {
+            Searching = false;
+                    PF.ResetPathFind(aggerTarget.position);
+            yield return new WaitForSeconds(0.5f);
+            Searching = true;
+        }
 
         public void B_UpattackCheck()
         {

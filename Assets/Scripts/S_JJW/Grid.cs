@@ -257,7 +257,7 @@ public class Grid : MonoBehaviour
 
     bool JudgeObstacle(float LB, float LU, float RB, float RL)
     {
-        return Mathf.Abs(LB - LU) < 0.3f && Mathf.Abs(RU - LU) < 0.3f && Mathf.Abs(RU - RB) < 0.3f && Mathf.Abs(RB - LB) < 0.3f;
+        return Mathf.Abs(LB - LU) < 0.2f && Mathf.Abs(RU - LU) < 0.2f && Mathf.Abs(RU - RB) < 0.2f && Mathf.Abs(RB - LB) < 0.2f;
     }
 
 

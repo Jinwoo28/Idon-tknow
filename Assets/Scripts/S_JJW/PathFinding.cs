@@ -7,6 +7,8 @@ public class PathFinding : MonoBehaviour
 {
     public GameObject Path_ = null;
 
+    
+
 
     //==============================================
 
@@ -28,7 +30,7 @@ public class PathFinding : MonoBehaviour
 
     int targetIndex = 0; // wayPoint의 인덱스 값
 
-    float speed = 10f; //이동 속도
+    float speed = 0; //이동 속도
 
     public bool finding;
     public bool success = false;    //길찾기가 끝났는지 확인
@@ -77,6 +79,8 @@ public class PathFinding : MonoBehaviour
 
         UO = GetComponent<UnitObsTest>();
         UO.UnitObstacle();
+
+        speed = UnitMode.speed;
     }
 
     private void Update()
@@ -244,6 +248,7 @@ public class PathFinding : MonoBehaviour
 
         if (end != null) end = null;
         end = Grid.gridinstance.NodePoint(TargetPos, cellsize);
+        Debug.Log("길 다시 찾기");
         StopCoroutine("FindPath");
         StopCoroutine("MoveUnit");
         StartCoroutine("FindPath");
@@ -490,25 +495,31 @@ public class PathFinding : MonoBehaviour
 
                     this.transform.LookAt(new Vector3(currentWaypoint.x, this.transform.position.y, currentWaypoint.z));
                     
-                   this.transform.position = Vector3.MoveTowards(transform.position, currentWaypoint, speed * Time.deltaTime);
+                    this.transform.position = Vector3.MoveTowards(transform.position, currentWaypoint, speed * Time.deltaTime);
                    // Rb.MovePosition(currentWaypoint * speed * Time.deltaTime);
                     
                     thisPos = this.transform.position;
                     thisPos.y = Grid.gridinstance.NodePoint(currentWaypoint, cellsize).YDepthLB + 0.6f;
                     this.transform.position = thisPos;
 
+
+
                     yield return null;
 
                 }
+                else
+                {
 
-                else yield break;
+            UO.UnitObstacle();
+              UnitMode.SwitchMode(Units.Player.PlayerUnit._Mode.IDlE);
+            Debug.Log("이동 끝");
+
+                    break;
+                }
 
             }
 
         }
-            UO.UnitObstacle();
-            UnitMode._mode = Units.Player.PlayerUnit._Mode.IDlE;
-            Debug.Log("이동 끝");
 
     }
 
