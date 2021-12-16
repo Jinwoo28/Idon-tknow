@@ -41,7 +41,7 @@ namespace Units.Player
 
 
 
-        private Camera camera;
+        private Camera Mcamera;
 
 
 
@@ -65,6 +65,7 @@ namespace Units.Player
 
         private bool isMove;
         private bool isHold;
+        private bool isAttack = false;
 
         private PathFinding PF = null;
 
@@ -88,7 +89,7 @@ namespace Units.Player
         
         private void Awake()
         {
-            camera = Camera.main;
+            Mcamera = Camera.main;
         }
 
         // Start is called before the first frame update
@@ -178,6 +179,7 @@ namespace Units.Player
                     atkUnit = aggerTarget.gameObject.GetComponent<Enemy.enemyUnit>();
                     
                     hasAggero = true;
+                _mode = _Mode.ATTACK;
                     break;
                 }
 
@@ -187,6 +189,7 @@ namespace Units.Player
         {
             if (atkUnit != null)
             {
+                isAttack = true;
                 if (atkUnit.baseStats.ground == false)
                 {
                     if (baseStats.airattack == 0)
@@ -232,6 +235,7 @@ namespace Units.Player
 
         private void MoveToAggroTarget() //타겟을 찾으면 따라감
         {
+            isAttack = false;
             if (aggerTarget == null)
             {
                 hasAggero = false;
@@ -241,6 +245,7 @@ namespace Units.Player
             {
                 if (distance <= baseStats.eyesight)
                 {
+                    
                     //if (Searching && _mode!=_Mode.ATTACK)
                     //{
                     //    Debug.Log("이동");

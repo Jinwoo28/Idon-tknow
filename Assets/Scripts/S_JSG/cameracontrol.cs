@@ -30,7 +30,8 @@ public class cameracontrol : MonoBehaviour
     {
         MouseMove();
 
-        CamPosSet();
+       // CamPosSet();
+        MoveToMinimapPos();
     }
 
     public void MouseMove()
@@ -78,10 +79,12 @@ public class cameracontrol : MonoBehaviour
                 Ray sconRay = MiniCam.ViewportPointToRay(hitpoint);
 
                 RaycastHit worldHit; ;
-                if (Physics.Raycast(sconRay, out worldHit, MiniCam.farClipPlane)) ;
-                Vector3 Pos = new Vector3(worldHit.point.x, this.transform.position.y, worldHit.point.z);
-                this.transform.position = Pos;
-                Debug.Log("2222");
+                if (Physics.Raycast(sconRay, out worldHit, MiniCam.farClipPlane))
+                {
+                    Vector3 Pos = new Vector3(worldHit.point.x, this.transform.position.y, worldHit.point.z);
+                    this.transform.position = Pos;
+                    Debug.Log("2222");
+                }
             }
    
         }
