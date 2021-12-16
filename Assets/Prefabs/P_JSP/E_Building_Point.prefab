@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6789962238926667231}
   - component: {fileID: 8405058272364140267}
   - component: {fileID: 4273392327582911761}
-  - component: {fileID: 6236565421294483853}
   m_Layer: 7
   m_Name: E_Building_Point
   m_TagString: Untagged
@@ -82,16 +81,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6236565421294483853
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5552500592795390397}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}

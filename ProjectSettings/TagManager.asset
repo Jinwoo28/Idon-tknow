@@ -9,6 +9,8 @@ TagManager:
   - Player_Building
   - Player_Unit
   - UI
+  - Enemy_Building
+  - Enemy_Unit
   layers:
   - Default
   - TransparentFX
