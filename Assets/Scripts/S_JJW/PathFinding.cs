@@ -84,8 +84,8 @@ public class PathFinding : MonoBehaviour
 
         UnitModeNum = (int)UnitMode._mode;
 
-        Debug.Log(UnitModeNum);
-        if(UnitModeNum == 3 || UnitModeNum == 1)
+// hold나 stop일 때 이동 멈춤
+        if(UnitModeNum == 4 || UnitModeNum == 1 || UnitModeNum == 2)
         {
             StopCoroutine("FindPath");
             StopCoroutine("MoveUnit");
@@ -110,6 +110,9 @@ public class PathFinding : MonoBehaviour
         }
 
         FloyingMoveUnit(Movedis);
+
+
+   
 
 
 
@@ -184,6 +187,8 @@ public class PathFinding : MonoBehaviour
 
 
 
+    Vector3 SetTargetPos_ = Vector3.zero;
+
 
 
     // 마우스 포인트로 찍은 노드를 길찾기의 목표지점으로 설정
@@ -210,7 +215,7 @@ public class PathFinding : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit, 100f))
             {
-                Vector3 hitPos = hit.point;
+                Vector3 TargetPos = hit.point;
                 //GameObject item = Instantiate(TargetPos, hit.point, Quaternion.identity);
                 //마우스에서 Ray를 쏴서 맞은 곳에 오브젝트를 생성
                 //목적지를 시각화 하기 위한 오브젝트
@@ -218,7 +223,9 @@ public class PathFinding : MonoBehaviour
                 if (end != null) end = null;
                 //end값에 이미 어떤 값이 들어가있다면 초기화
 
-                end = Grid.gridinstance.NodePoint(hitPos, cellsize);
+                end = Grid.gridinstance.NodePoint(TargetPos, cellsize);
+
+                SetTargetPos_ = TargetPos;
                 //end에 hitPos에 대응하는 NodeIndex를 대입
             }
 
@@ -482,8 +489,10 @@ public class PathFinding : MonoBehaviour
                     }
 
                     this.transform.LookAt(new Vector3(currentWaypoint.x, this.transform.position.y, currentWaypoint.z));
-                    this.transform.position = Vector3.MoveTowards(transform.position, currentWaypoint, speed * Time.deltaTime);
-
+                    
+                   this.transform.position = Vector3.MoveTowards(transform.position, currentWaypoint, speed * Time.deltaTime);
+                   // Rb.MovePosition(currentWaypoint * speed * Time.deltaTime);
+                    
                     thisPos = this.transform.position;
                     thisPos.y = Grid.gridinstance.NodePoint(currentWaypoint, cellsize).YDepthLB + 0.6f;
                     this.transform.position = thisPos;
@@ -495,11 +504,11 @@ public class PathFinding : MonoBehaviour
                 else yield break;
 
             }
+
+        }
             UO.UnitObstacle();
             UnitMode._mode = Units.Player.PlayerUnit._Mode.IDlE;
             Debug.Log("이동 끝");
-
-        }
 
     }
 
@@ -539,6 +548,16 @@ public class PathFinding : MonoBehaviour
         }
 
     }
+
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.CompareTag("Player_Unit"))
+    //    {
+    //         StopCoroutine("FindPath");
+    //        StopCoroutine("MoveUnit");
+            
+    //    }
+    //}
 
 
 }

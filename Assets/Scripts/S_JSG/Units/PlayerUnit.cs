@@ -66,18 +66,24 @@ namespace Units.Player
         private bool isMove;
         private bool isHold;
 
+        private PathFinding PF = null;
+
 
        public _Mode _mode { get; set; }
 
 
         private void SetMode()
         {
-            if (Input.GetKeyDown(KeyCode.H)) _mode = _Mode.HOLD;
-            if (Input.GetKeyDown(KeyCode.A)) _mode = _Mode.ATTACK;
-            if (Input.GetKeyDown(KeyCode.S)) _mode = _Mode.STOP;
-            if (Input.GetKeyDown(KeyCode.LeftShift)) _mode = _Mode.PATROL;
-            if (Input.GetKeyDown(KeyCode.M)) _mode = _Mode.MOVE;
-            Debug.Log(_mode);
+            if (Input.GetKeyDown(KeyCode.H)) SwitchMode(_Mode.HOLD);
+            if (Input.GetKeyDown(KeyCode.A)) SwitchMode(_Mode.ATTACK);
+            if (Input.GetKeyDown(KeyCode.S)) SwitchMode(_Mode.STOP);
+            if (Input.GetKeyDown(KeyCode.LeftShift)) SwitchMode(_Mode.PATROL);
+            if (Input.GetKeyDown(KeyCode.M)) SwitchMode(_Mode.MOVE);
+        }
+
+        private void SwitchMode(_Mode UM)
+        {
+            _mode = UM;
         }
         
         private void Awake()
@@ -88,6 +94,8 @@ namespace Units.Player
         // Start is called before the first frame update
         void Start()
         {
+
+            PF= GetComponentInParent<PathFinding>();
 
             _mode = _Mode.IDlE;
             baseStats = unitType.baseStats;
@@ -122,15 +130,19 @@ namespace Units.Player
             atkCooldown -= Time.deltaTime;
 
            // MoveUnit();
+         
+            SetMode();
 
             if (!isMove && !isHold)
             {
                 checkForEnemyTargets();
+            MoveToAggroTarget();
+            Attack();
             }
 
-            MoveToAggroTarget();
+            Debug.Log(_mode);
 
-            SetMode();
+
 
         }
         public void SetDestinatin(Vector3 dest) //목표지점
@@ -154,6 +166,7 @@ namespace Units.Player
         private void checkForEnemyTargets() //범위안 타겟찾음
         {
            
+            
                 rangeColliders = Physics.OverlapSphere(transform.position, baseStats.eyesight, UnitHandler.instance.eUnitLayer);
 
                 for (int i = 0; i < rangeColliders.Length;)
@@ -161,47 +174,51 @@ namespace Units.Player
                     aggerTarget = rangeColliders[i].gameObject.transform;
                     // aggroUnit = aggerTarget.gameObject.GetComponentInChildren<UnitStatDisplay>();
                     atkUnit = aggerTarget.gameObject.GetComponent<Enemy.enemyUnit>();
-
+                Debug.Log("유닛 찾음");
                     hasAggero = true;
                     break;
                 }
-            
+
         }
 
         private void Attack()
         {
-            if (atkUnit.baseStats.ground == false)
+            if (atkUnit != null)
             {
-                if (baseStats.airattack == 0)
+                if (atkUnit.baseStats.ground == false)
                 {
-                    return;
+                    if (baseStats.airattack == 0)
+                    {
+                        return;
+                    }
+                    else
+                    {
+                        if (atkCooldown <= 0 && distance <= baseStats.airattackrange)
+                        {
+                            atkUnit.GetComponentInChildren<UnitStatDisplay>().TakeDamage(baseStats.airattack);
+                            //aggroUnit.TakeDamage(baseStats.attack);
+                            atkCooldown = baseStats.atkspeed;
+                        }
+
+                    }
                 }
                 else
                 {
-                    if (atkCooldown <= 0 && distance <= baseStats.airattackrange)
+                    if (baseStats.attack == 0)
                     {
-                        atkUnit.GetComponentInChildren<UnitStatDisplay>().TakeDamage(baseStats.airattack);
-                        //aggroUnit.TakeDamage(baseStats.attack);
-                        atkCooldown = baseStats.atkspeed;
+                        return;
                     }
-
-                }
-            }
-            else
-            {
-                if (baseStats.attack == 0)
-                {
-                    return;
-                }
-                else
-                {
-                    if (atkCooldown <= 0 && distance <= baseStats.airattackrange)
+                    else
                     {
-                        atkUnit.GetComponentInChildren<UnitStatDisplay>().TakeDamage(baseStats.attack);
-                        //aggroUnit.TakeDamage(baseStats.attack);
-                        atkCooldown = baseStats.atkspeed;
-                    }
+                        if (atkCooldown <= 0 && distance <= baseStats.atkRange)
+                        {
+                            Debug.Log("공격");
+                            atkUnit.GetComponentInChildren<UnitStatDisplay>().TakeDamage(baseStats.attack);
+                            //aggroUnit.TakeDamage(baseStats.attack);
+                            atkCooldown = baseStats.atkspeed;
+                        }
 
+                    }
                 }
             }
 
@@ -215,15 +232,15 @@ namespace Units.Player
             {
                 hasAggero = false;
             }
+
             else
             {
                 distance = Vector3.Distance(aggerTarget.position, transform.position);
 
                 if (distance <= baseStats.eyesight)
                 {
-                    //Debug.Log("이동");
-                    transform.position = Vector3.MoveTowards(transform.position, aggerTarget.position, 3f * Time.deltaTime);
-
+                    Debug.Log("이동");
+                    PF.ResetPathFind(aggerTarget.position);
                 }
             }
 

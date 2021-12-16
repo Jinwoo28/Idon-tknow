@@ -59,21 +59,23 @@ namespace Building {
 
         private void checkForEnemyTargets() //범위안 타겟찾음
         {
+
             rangeColliders = Physics.OverlapSphere(transform.position, missileturret.GetComponent <Player.PlayerBuilding>().baseStats.eyesight, Units.UnitHandler.instance.eUnitLayer);
 
-            for (int i = 0; i < rangeColliders.Length;)
-            {
-                if (rangeColliders[i].gameObject.GetComponent<Units.Enemy.enemyUnit>().baseStats.air == true)
+                           for (int i = 0; i < rangeColliders.Length;)
                 {
+                    if (rangeColliders[i].gameObject.GetComponent<Units.Enemy.enemyUnit>().baseStats.air == true)
+                    {
 
 
-                    atkUnit = rangeColliders[i].gameObject.GetComponent<Units.Enemy.enemyUnit>();
+                        atkUnit = rangeColliders[i].gameObject.GetComponent<Units.Enemy.enemyUnit>();
 
 
-                    break;
+                        break;
 
+                    }
                 }
-            }
+           
         }
         private void turretAttack()
         {

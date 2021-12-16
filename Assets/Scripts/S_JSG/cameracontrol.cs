@@ -14,6 +14,8 @@ public class cameracontrol : MonoBehaviour
 
     public Vector2 limit;
 
+    [SerializeField] private Camera MiniCam = null;
+
 
     void Start()
     {
@@ -49,5 +51,23 @@ public class cameracontrol : MonoBehaviour
         pos.z = Mathf.Clamp(pos.z, 0, 120);
 
         transform.position = pos;
+    }
+
+    private void CamPosSet()
+    {
+        Vector3 thisPos = this.transform.position;
+
+        Ray ray = MiniCam.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        if(Physics.Raycast(ray,out hit))
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                thisPos.x = hit.point.x;
+                thisPos.z = hit.point.z;
+
+                this.transform.position = thisPos;
+            }
+        }
     }
 }
