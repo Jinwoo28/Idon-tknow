@@ -121,35 +121,8 @@ namespace RTS.Player
             }
         }
 
-        public void B_atkupPlus()
-        {
-            B_atkUpCount++;
-
-
-        }
-        public void B_armorupPlus()
-        {
-            B_armorUpCount++;
-        }
-        public void M_GroundAtkUpPlus()
-        {
-            M_GroundatkUpCount++;
-
-        }
-
-        public void M_GroundarmorUpPlus()
-        {
-            M_GroundarmorUpCount++;
-        }
-
-        public void M_AiratkUpPlus()
-        {
-            M_AiratkUpCount++;
-        }
-        public void M_AirarmorpPlus()
-        {
-            M_AirarmorUpCount++;
-        }
+       
+     
 
        
     }

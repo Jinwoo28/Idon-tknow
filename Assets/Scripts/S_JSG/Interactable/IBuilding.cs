@@ -8,7 +8,7 @@ namespace Interactables
     public class IBuilding : Interactable
     {
 
-        public static IBuilding instance = null;
+        
         public Transform playerUnits;
 
         public UI.HUD.PlayerAction actions;
@@ -23,7 +23,7 @@ namespace Interactables
         
         private new void Awake()
         {
-            instance = this;
+           
 
         }
         public override void OnInteractEnter()
