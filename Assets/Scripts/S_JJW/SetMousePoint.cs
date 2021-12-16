@@ -20,8 +20,9 @@ public class SetMousePoint : MonoBehaviour
     void Start()
     {
         NomalMousePoint.SetActive(false);
-//        NomalMousePoint.transform.localScale *= 15;
-        
+        AomalMousePoint.SetActive(false);
+        //        NomalMousePoint.transform.localScale *= 15;
+
         Cursor.SetCursor(NcursorImg, new Vector2(13.5f, 10), CursorMode.ForceSoftware);
       //  Debug.Log("dd");
 

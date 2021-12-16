@@ -105,6 +105,7 @@ GameObject:
   - component: {fileID: 5011219237738910426}
   - component: {fileID: 3392170950375646841}
   - component: {fileID: 4173490715985873815}
+  - component: {fileID: 2999974208374011846}
   m_Layer: 6
   m_Name: P_Medic
   m_TagString: Player_Unit
@@ -184,6 +185,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fff2aab2767b7fc4caf227bf6cef53a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &2999974208374011846
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8768117825794293654}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1934d3b82ed38eb4c963b82ebf181627, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &2332858179089849683
 PrefabInstance:
   m_ObjectHideFlags: 0

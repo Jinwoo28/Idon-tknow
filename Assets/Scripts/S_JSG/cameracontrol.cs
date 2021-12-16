@@ -17,6 +17,8 @@ public class cameracontrol : MonoBehaviour
     [SerializeField] private Camera MiniCam = null;
     [SerializeField] LayerMask mask;
 
+    public GameObject DDD;
+
 
     void Start()
     {
@@ -25,6 +27,13 @@ public class cameracontrol : MonoBehaviour
 
 
     void Update()
+    {
+        MouseMove();
+
+        CamPosSet();
+    }
+
+    public void MouseMove()
     {
         Vector3 pos = transform.position;
         if (Input.GetKey(KeyCode.UpArrow) || Input.mousePosition.y >= Screen.height - BorderThickness)
@@ -47,13 +56,11 @@ public class cameracontrol : MonoBehaviour
         float scroll = Input.GetAxis("Mouse ScrollWheel");
         pos.y -= scroll * scrolspeed * 100f * Time.deltaTime;
 
-        pos.x = Mathf.Clamp(pos.x, 0,120);
+        pos.x = Mathf.Clamp(pos.x, 0, 120);
         pos.y = 3f;
         pos.z = Mathf.Clamp(pos.z, 0, 120);
 
         transform.position = pos;
-
-        MoveToMinimapPos();
     }
 
 
@@ -82,6 +89,7 @@ public class cameracontrol : MonoBehaviour
 
     private void CamPosSet()
     {
+        
         Vector3 thisPos = this.transform.position;
 
         Ray ray = MiniCam.ScreenPointToRay(Input.mousePosition);
@@ -92,6 +100,9 @@ public class cameracontrol : MonoBehaviour
             {
                 thisPos.x = hit.point.x;
                 thisPos.z = hit.point.z;
+                Debug.Log(thisPos);
+
+                //Instantiate(DDD, thisPos, Quaternion.identity);
 
                 this.transform.position = thisPos;
             }
