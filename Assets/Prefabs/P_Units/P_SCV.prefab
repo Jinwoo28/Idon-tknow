@@ -27,6 +27,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isInteracting: 0
   highlight: {fileID: 517891714043240273}
+  actions: {fileID: 11400000, guid: cc2df69022c555249bf0b1decaee91a0, type: 2}
 --- !u!114 &4728465797642792842
 MonoBehaviour:
   m_ObjectHideFlags: 0

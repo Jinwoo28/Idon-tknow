@@ -93,6 +93,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isInteracting: 0
   highlight: {fileID: 8682425422801571554}
+  actions: {fileID: 11400000, guid: 9464d625412aede48aaaf2bbbd8a861f, type: 2}
 --- !u!1 &7894174380209245066
 GameObject:
   m_ObjectHideFlags: 0
