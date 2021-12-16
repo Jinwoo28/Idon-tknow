@@ -86,7 +86,6 @@ GameObject:
   - component: {fileID: 6268430721859111217}
   - component: {fileID: -1621185060501688684}
   - component: {fileID: 3930155658417069729}
-  - component: {fileID: -4046780771745761732}
   m_Layer: 5
   m_Name: SCV_Btn
   m_TagString: Untagged
@@ -183,20 +182,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1198e60580f1544e8a1030a6ef1b911, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-4046780771745761732
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5392786933212251445}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5be6f4fa26a0f294ca9a15b81fa2b369, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BtnOn: {fileID: 6454244593593018089}
-  BtnOff: {fileID: 4919401568131725507}
 --- !u!1 &6454244593593018089
 GameObject:
   m_ObjectHideFlags: 0

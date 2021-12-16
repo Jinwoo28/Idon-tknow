@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6268430721859111217}
   - component: {fileID: -1621185060501688684}
   - component: {fileID: 3930155658417069729}
-  - component: {fileID: 7855821209870689161}
+  - component: {fileID: 7797237591232883481}
   m_Layer: 5
   m_Name: Vulture_Btn
   m_TagString: Untagged
@@ -108,7 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1198e60580f1544e8a1030a6ef1b911, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7855821209870689161
+--- !u!114 &7797237591232883481
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -117,7 +117,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5392786933212251445}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5be6f4fa26a0f294ca9a15b81fa2b369, type: 3}
+  m_Script: {fileID: 11500000, guid: 9516f9add40635c4793b77d9456e03b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   BtnOn: {fileID: 6454244593593018089}
