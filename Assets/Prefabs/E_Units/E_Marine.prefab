@@ -79,7 +79,6 @@ MonoBehaviour:
   atkUpPlus: 0
   DropCount: 0
   eyesight: 0
-  isAtking: 0
 --- !u!114 &8892413042651971926
 MonoBehaviour:
   m_ObjectHideFlags: 0

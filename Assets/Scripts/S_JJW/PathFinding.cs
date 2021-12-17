@@ -38,8 +38,6 @@ public class PathFinding : MonoBehaviour
     private Rigidbody Rb = null;
     Vector3 thisPos = Vector3.zero;
 
-    Vector3 SetTargetPos_ = Vector3.zero;
-
     //======================================================================
     //공중 유닛 이동을 위한 변수
 
@@ -87,22 +85,24 @@ public class PathFinding : MonoBehaviour
 
     private void Update()
     {
+
         UnitModeNum = (int)UnitMode._mode;
 
 // hold나 stop일 때 이동 멈춤
-        if(UnitModeNum == 3 || UnitModeNum == 1 || UnitMode.isAtking)
+        if(UnitModeNum == 4 || UnitModeNum == 1 || UnitModeNum == 2)
         {
             StopCoroutine("FindPath");
             StopCoroutine("MoveUnit");
         }
 
-        if (iUnit.isSelected()) //유닛이 선택이 되고
+        if (iUnit.isSelected()) //유닛이 선택이 되면
         {
 
-            if (Input.GetMouseButtonDown(1)) // 마우스 우클릭을 하면
+            if (Input.GetMouseButtonDown(1))
             {
                 if (!baseStats.air) //공중유닛인지 판단
                 {
+                 //   Debug.Log("222");
                     SetTarget();
                 }
                 else
@@ -113,10 +113,57 @@ public class PathFinding : MonoBehaviour
             }
         }
 
-        //FloyingMoveUnit(Movedis);
-    }
+        FloyingMoveUnit(Movedis);
+
 
    
+
+
+
+
+        //thisPos = this.transform.position;
+
+        //    thisPos.y = Grid.gridinstance.NodePoint(this.transform.position, cellsize).YDepthLB + 1.0f;
+        //    this.transform.position = thisPos;
+
+
+        //====================================================
+
+        //    Vector3 YPOs = this.transform.position;
+        //RaycastHit hit;
+        //if(Physics.Raycast(this.transform.position,Vector3.forward*0.5f,out hit, 1.0f))
+        //{
+        //    YPOs.y = hit.point.y;
+        //    Debug.DrawLine(this.transform.position, Vector3.forward, Color.red);
+        //}
+        //    this.transform.position = YPOs;
+
+
+    }
+
+    //public void OnPathFound()
+    //{
+    //    StopCoroutine("FollowPath");
+    //    StartCoroutine("FollowPath");
+    //}
+
+    //IEnumerator FollowPath()
+    //{
+    //    Vector3 currentWaypoint = Path[0];  //currenWaypoint를 path배열로 선언
+    //    while (true)
+    //    {
+    //        if (transform.position == currentWaypoint)  //현재 위치가 currentWaypoint와 같을 때
+    //        {
+    //            targetIndex++;  
+    //            if (targetIndex >= Path.Length) yield break;
+    //        }
+    //        currentWaypoint = Path[targetIndex];    // path배열의 index번호 증가
+    //    }
+    //    this.transform.position = Vector3.MoveTowards(transform.position, currentWaypoint, speed * Time.deltaTime);
+    //    yield return null;
+    //}
+
+
     // ==========================================================
     //유닛의 현재 위치를 길찾기의 시작 위치로 설정
     public void SetStartPos()
@@ -135,18 +182,37 @@ public class PathFinding : MonoBehaviour
     {
         //Debug.Log(this.transform.position);
         return Grid.gridinstance.NodePoint(this.transform.position, cellsize);
+
     }
     // ================================================================
+
+
+    //위치값을 밖에서 지정해 줘야한다.
+
+
+
+    Vector3 SetTargetPos_ = Vector3.zero;
+
+
 
     // 마우스 포인트로 찍은 노드를 길찾기의 목표지점으로 설정
     public void SetTarget()
     {
         if (Input.GetMouseButtonDown(1))
         {
+
+            //========================================================
+            //유닛의 모드를 Move로 변경
+
+            
+            //========================================================
+
             openSet.Clear();
             closedSet.Clear();
             SetStartPos();
             //마우스 우클릭 시 새로운 길찾기를 위해 Open과 close를 리셋, 시작 위치도 현재 게임 오브젝트의 위치로 초기화
+            UnitMode._mode = Units.Player.PlayerUnit._Mode.MOVE;
+            //===========================================================
             
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -167,18 +233,19 @@ public class PathFinding : MonoBehaviour
                 //end에 hitPos에 대응하는 NodeIndex를 대입
             }
 
-            if (end.walkable == true)
-            {
+            //if (end.walkable == true)
+            //{
             StopCoroutine("FindPath");
             StopCoroutine("MoveUnit");
             StartCoroutine("FindPath");
-            }
+            //}
             //start와 목적지가 정해졌으면 FindPath함수 실행
         }
     }
 
     public void ResetPathFind(Vector3 TargetPos)
     {
+
         if (end != null) end = null;
         end = Grid.gridinstance.NodePoint(TargetPos, cellsize);
         Debug.Log("길 다시 찾기");
@@ -199,7 +266,14 @@ public class PathFinding : MonoBehaviour
 
         //길찾기 함수
 
+
         openSet.Add(start); //start를 첫 열린 목록에 추가
+
+
+
+        //================================================================================
+
+
         if (openSet.Count > 0)
         {
             while (openSet.Count > 0)   //열린 목록에 인자가 없을 때 까지 반복
@@ -215,12 +289,22 @@ public class PathFinding : MonoBehaviour
                     }
                 }
 
+                if (currentNode != end && openSet.Count == 0)
+                {
+                    success = false;
+                    Debug.Log("멈춤");
+                    break;
+                }
+
                 //마우스 위치가 이동 가능한 지역인지 확인
                 //이동 불가능하다면 선택 불가
                 //이동 가능한 지역이면 예외처리
 
+
                 openSet.Remove(currentNode);
                 closedSet.Add(currentNode);
+
+
 
                 // 현재 노드가 목적지면 while문 탈출
                 if (currentNode == end)
@@ -230,9 +314,17 @@ public class PathFinding : MonoBehaviour
                     targetIndex = 0;
                     StopCoroutine("MoveUnit");
                     StartCoroutine("MoveUnit");
+                  //  Debug.Log("길 찾음");
                     UO.ReSetUnitObstacle();
+
+                 //   Debug.Log("닫힌 Node Count : " + closedSet.Count);
                     break;
                 }
+
+
+                //int X = Grid.gridinstance.TrueNodeCount();
+
+                // Debug.Log(X);
 
                 //이웃 노드를 검색
                 foreach (Node neighbour in Grid.gridinstance.GetNeighbours(currentNode))
@@ -263,13 +355,21 @@ public class PathFinding : MonoBehaviour
                     }
                 }
             }
+
+
         }
         //길을 찾지 못했을 때 예외처리 필요
+
         //현재 바다는 이미 walkable이 false이기 때문에 선택되지 않음
         //추후 예외처리가 되면 바꿀 예정
 
         yield return null;
+
     }
+
+    float closeDistance = 1.0f;
+
+
 
     //==============================================================================
 
@@ -329,6 +429,9 @@ public class PathFinding : MonoBehaviour
         return waypoints;
     }
 
+
+
+
     int GetDistance(Node nodeA, Node nodeB)
     {
         //노드간 거리계산
@@ -342,12 +445,30 @@ public class PathFinding : MonoBehaviour
         return 14 * dstX + 10 * (dstY - dstX);
     }
 
+
     IEnumerator MoveUnit()
     {
+        // Debug.Log("sss");
+       // Debug.Log("ssss");
         if (success)
         {
-            UnitMode._mode = Units.Player.PlayerUnit._Mode.MOVE;
             Vector3[] Path = RetracePath2(start, end);   //start와 end사이의 이동 포인트를 저장하는 배열 path
+
+            //================================================================================
+            //유닛의 이동경로 표시
+
+            //for (int i = 0; i < Path.Length; i++)
+            //{
+            //    Vector3 NodePos = Path[i];
+            //    NodePos.y += 0.5f;
+
+
+            //    GameObject DD = Instantiate(Path_, NodePos, Quaternion.Euler(90, 0, 0));
+
+            //}
+
+            //================================================================================
+
 
             Vector3 currentWaypoint = this.transform.position;
 
@@ -380,17 +501,26 @@ public class PathFinding : MonoBehaviour
                     thisPos = this.transform.position;
                     thisPos.y = Grid.gridinstance.NodePoint(currentWaypoint, cellsize).YDepthLB + 0.6f;
                     this.transform.position = thisPos;
+
+
+
                     yield return null;
+
                 }
                 else
                 {
-                  UO.UnitObstacle();
-                  UnitMode.SwitchMode(Units.Player.PlayerUnit._Mode.IDlE);
-                  Debug.Log("이동 끝");
-                  break;
+
+            UO.UnitObstacle();
+              UnitMode.SwitchMode(Units.Player.PlayerUnit._Mode.IDlE);
+            Debug.Log("이동 끝");
+
+                    break;
                 }
+
             }
+
         }
+
     }
 
     private void FlyingTarget()
@@ -413,7 +543,11 @@ public class PathFinding : MonoBehaviour
     Vector3 TargetPos_ = Vector3.zero;
     public void FloyingMoveUnit(Vector3 Dir_)
     {
+
+
+
         Vector3 CurrentPos = new Vector3(this.transform.position.x, 0, this.transform.position.z);
+
         if (isMove)
         {
             var dir = Dir_ - CurrentPos;
@@ -423,5 +557,18 @@ public class PathFinding : MonoBehaviour
         {
             isMove = false;
         }
+
     }
+
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.CompareTag("Player_Unit"))
+    //    {
+    //         StopCoroutine("FindPath");
+    //        StopCoroutine("MoveUnit");
+            
+    //    }
+    //}
+
+
 }
