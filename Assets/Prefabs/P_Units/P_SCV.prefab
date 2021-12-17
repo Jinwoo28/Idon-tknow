@@ -111,7 +111,6 @@ GameObject:
   - component: {fileID: 1826150426237879295}
   - component: {fileID: 950125464652894691}
   - component: {fileID: 7515748534352316355}
-  - component: {fileID: 4788282361842224975}
   m_Layer: 6
   m_Name: P_SCV
   m_TagString: Player_Unit
@@ -191,24 +190,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fff2aab2767b7fc4caf227bf6cef53a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4788282361842224975
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3889503317693523464}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f41e1704163a0304bac3a24aa9d9d1c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  craft:
-  - craftname: commandCenter
-    previewCraft: {fileID: 4179668708083336298, guid: a3e95d7497038c948a180a54c423fe2c,
-      type: 3}
-    BuildCraft: {fileID: 8723536339271152076, guid: 0124dc1f20e04d543a9d70200230102a,
-      type: 3}
 --- !u!1001 &1238442435693315402
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -86,6 +86,7 @@ GameObject:
   - component: {fileID: 2833436559795816387}
   - component: {fileID: 1742884022168756326}
   - component: {fileID: 5760250959359259317}
+  - component: {fileID: -1971930763866648567}
   m_Layer: 5
   m_Name: Armory_Btn
   m_TagString: Untagged
@@ -158,9 +159,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: -1971930763866648567}
         m_TargetAssemblyTypeName: UI.HUD.Action, Assembly-CSharp
-        m_MethodName: OnClick
+        m_MethodName: BuildClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -185,6 +186,19 @@ MonoBehaviour:
   OnBtn: {fileID: 2899621401795897371}
   offBtn: {fileID: 8456490093783547222}
   Btn_Num: 4
+--- !u!114 &-1971930763866648567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4285337957525539783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1198e60580f1544e8a1030a6ef1b911, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slotnum: 11
 --- !u!1 &8456490093783547222
 GameObject:
   m_ObjectHideFlags: 0

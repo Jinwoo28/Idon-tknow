@@ -85,6 +85,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2833436559795816387}
   - component: {fileID: 1742884022168756326}
+  - component: {fileID: 6795029282429234405}
   m_Layer: 5
   m_Name: CommandCenter_Btn
   m_TagString: Untagged
@@ -156,11 +157,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4788282361842224975, guid: 2005358479b8ede42814d46428245e1d,
-          type: 3}
-        m_TargetAssemblyTypeName: BuildManager, Assembly-CSharp
-        m_MethodName: SlotClick
-        m_Mode: 3
+      - m_Target: {fileID: 6795029282429234405}
+        m_TargetAssemblyTypeName: UI.HUD.Action, Assembly-CSharp
+        m_MethodName: BuildClick
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -169,3 +169,16 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &6795029282429234405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4285337957525539783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1198e60580f1544e8a1030a6ef1b911, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slotnum: 0
