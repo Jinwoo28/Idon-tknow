@@ -109,7 +109,7 @@ namespace InputManager
                 if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
                 {
                     LayerMask layerHit = hit.transform.gameObject.layer;
-
+                    
                     switch (layerHit.value)
                     {
                         case 6: //Units Layer

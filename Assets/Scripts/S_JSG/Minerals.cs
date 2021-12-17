@@ -33,6 +33,19 @@ public class Minerals : MonoBehaviour
     }
     public void mineralswork()
     {
+        Debug.LogError("미네랄을 캐자");
+        Invoke("mineralattack", 4f);
+
 
     }
+
+    void mineralattack()
+    {
+
+        Max -= 8;
+        Debug.LogError("작업 완료");
+
+    }
+
+
 }

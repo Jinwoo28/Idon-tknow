@@ -1523,7 +1523,7 @@ PrefabInstance:
     - target: {fileID: 5535533382083874269, guid: 492f3b2739228674fa5fcf10e072eca7,
         type: 3}
       propertyPath: m_RootOrder
-      value: 16
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5535533382083874269, guid: 492f3b2739228674fa5fcf10e072eca7,
         type: 3}
@@ -2246,7 +2246,7 @@ Transform:
   - {fileID: 917195070}
   - {fileID: 362486566}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &938782184 stripped
 Transform:
@@ -3565,6 +3565,30 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1328699940 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2156869098754553883, guid: 2005358479b8ede42814d46428245e1d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1199155634}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1328699946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1328699940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f75497634b671684caed8ce15231b2c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scv_: {fileID: 1328699940}
+  rangeCollider: []
+  Minlayer:
+    serializedVersion: 2
+    m_Bits: 33554432
+  MineralsTarget: {fileID: 0}
 --- !u!1 &1372414275
 GameObject:
   m_ObjectHideFlags: 0
@@ -3862,7 +3886,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 53119
+    m_Bits: 33607551
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0

@@ -89,11 +89,26 @@ namespace Units.Player
         }
         public void mineralattack()
         {
-            if (MineralsTarget != null)
+
+            
+            
+        }
+
+        private void OnCollisionEnter(Collision collision)
+        {
+            
+            if (collision.gameObject.layer == 25)
             {
-               // MineralsTarget.GetComponent<Minerals>().
+                mineralattack();
+                {
+
+                    collision.gameObject.GetComponent<Minerals>().mineralswork();
+
+                }
+
 
             }
+
         }
     }
 }
