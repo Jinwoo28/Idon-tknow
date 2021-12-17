@@ -13,139 +13,189 @@ public class EnigneerungBayButton : MonoBehaviour
     public GameObject BtnOff;
     public GameObject offBtn;
 
-    public GameObject weapon;
-    public GameObject armor;
+
+    public GameObject UpBtn;
+
+   
+    
+
+    public int Btn_Num;
 
 
     void Start()
     {
-        StartBtnWeapon();
-
-        StartBtnArmor();
+        startBtnCheck();
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        BtnAromorCheck();
-        BtnWeaponCheck();
-        WeaponUpCountChek();
-        ArmorUpCountCheck();    
+        BtnCheck();
+
+        UpConuntCheck();
+
     }
 
-    public void StartBtnWeapon()
+
+    public void startBtnCheck()
     {
-        if (playerManager.instance.B_atkUpCount < 1)
+        if (Btn_Num == 1)
         {
-           
-            
-                weapon.GetComponent<EnigneerungBayButton>().BtnOn.SetActive(true);
-                weapon.GetComponent<EnigneerungBayButton>().BtnOff.SetActive(false);
+            if (playerManager.instance.B_atkUpCount < 1)
+            {
 
-                weapon.GetComponent<Button>().interactable = true;
 
-                weapon.GetComponent<Button>().targetGraphic = weapon.GetComponent<EnigneerungBayButton>().BtnOn.GetComponent<Image>();
+                UpBtn.GetComponent<EnigneerungBayButton>().BtnOn.SetActive(true);
+                UpBtn.GetComponent<EnigneerungBayButton>().BtnOff.SetActive(false);
+
+                UpBtn.GetComponent<Button>().interactable = true;
+
+                UpBtn.GetComponent<Button>().targetGraphic = UpBtn.GetComponent<EnigneerungBayButton>().BtnOn.GetComponent<Image>();
+
+
+            }
+
+            else if (Btn_Num == 2)
+            {
+                if (playerManager.instance.B_armorUpCount < 1)
+                {
+
+
+                    UpBtn.GetComponent<EnigneerungBayButton>().BtnOn.SetActive(true);
+                    UpBtn.GetComponent<EnigneerungBayButton>().BtnOff.SetActive(false);
+
+                    UpBtn.GetComponent<Button>().interactable = true;
+
+                    UpBtn.GetComponent<Button>().targetGraphic = UpBtn.GetComponent<EnigneerungBayButton>().BtnOn.GetComponent<Image>();
+
+
+                }
+
+            }
 
 
         }
 
 
     }
-    public void StartBtnArmor()
+
+    
+   
+    public void BtnCheck()
     {
-        if (playerManager.instance.B_armorUpCount < 1)
+        if (Btn_Num == 1)
         {
-
-
-            armor.GetComponent<EnigneerungBayButton>().BtnOn.SetActive(true);
-            armor.GetComponent<EnigneerungBayButton>().BtnOff.SetActive(false);
-
-            armor.GetComponent<Button>().interactable = true;
-
-            armor.GetComponent<Button>().targetGraphic = armor.GetComponent<EnigneerungBayButton>().BtnOn.GetComponent<Image>();
-
-
-        }
-
-
-    }
-
-    public void BtnWeaponCheck()
-    {
-
-       
             if (playerManager.instance.B_atkUpCount > 0)
             {
-                
-
-
-                    if (playerManager.instance.b_scincefacility == false)
-                    {
-
-
-                weapon.GetComponent<EnigneerungBayButton>().BtnOn.SetActive(false);
-                weapon.GetComponent<EnigneerungBayButton>().BtnOff.SetActive(true);
-
-                weapon.GetComponent<Button>().targetGraphic = weapon.GetComponent<EnigneerungBayButton>().BtnOff.GetComponent<Image>();
-
-                weapon.GetComponent<Button>().interactable = false;
 
 
 
-                    }
-                    else 
-            {
-                weapon.GetComponent<EnigneerungBayButton>().BtnOn.SetActive(true);
-                weapon.GetComponent<EnigneerungBayButton>().BtnOff.SetActive(false);
+                if (playerManager.instance.b_scincefacility == false)
+                {
 
-                weapon.GetComponent<Button>().interactable = true;
 
-                weapon.GetComponent<Button>().targetGraphic = weapon.GetComponent<EnigneerungBayButton>().BtnOn.GetComponent<Image>();
+                    UpBtn.GetComponent<EnigneerungBayButton>().BtnOn.SetActive(false);
+                    UpBtn.GetComponent<EnigneerungBayButton>().BtnOff.SetActive(true);
+
+                    UpBtn.GetComponent<Button>().targetGraphic = UpBtn.GetComponent<EnigneerungBayButton>().BtnOff.GetComponent<Image>();
+
+                    UpBtn.GetComponent<Button>().interactable = false;
+
+
+
+                }
+                else
+                {
+                    UpBtn.GetComponent<EnigneerungBayButton>().BtnOn.SetActive(true);
+                    UpBtn.GetComponent<EnigneerungBayButton>().BtnOff.SetActive(false);
+
+                    UpBtn.GetComponent<Button>().interactable = true;
+
+                    UpBtn.GetComponent<Button>().targetGraphic = UpBtn.GetComponent<EnigneerungBayButton>().BtnOn.GetComponent<Image>();
+
+
+
+                }
 
 
 
             }
 
+        }
+        else if (Btn_Num == 2)
+        {
+            if (playerManager.instance.B_armorUpCount > 0)
+            {
 
-            
-              }
+
+
+                if (playerManager.instance.b_scincefacility == false)
+                {
+
+
+                    UpBtn.GetComponent<EnigneerungBayButton>().BtnOn.SetActive(false);
+                    UpBtn.GetComponent<EnigneerungBayButton>().BtnOff.SetActive(true);
+
+                    UpBtn.GetComponent<Button>().targetGraphic = UpBtn.GetComponent<EnigneerungBayButton>().BtnOff.GetComponent<Image>();
+
+                    UpBtn.GetComponent<Button>().interactable = false;
+
+
+
+                }
+                else
+                {
+                    UpBtn.GetComponent<EnigneerungBayButton>().BtnOn.SetActive(true);
+                    UpBtn.GetComponent<EnigneerungBayButton>().BtnOff.SetActive(false);
+
+                    UpBtn.GetComponent<Button>().interactable = true;
+
+                    UpBtn.GetComponent<Button>().targetGraphic = UpBtn.GetComponent<EnigneerungBayButton>().BtnOn.GetComponent<Image>();
+
+
+
+                }
+
+
+
+            }
+
+        }
+
+
     }
-    public void BtnAromorCheck()
+
+   public void UpConuntCheck()
     {
-        if (playerManager.instance.B_armorUpCount > 0)
+        if (Btn_Num == 1)
         {
 
-
-
-            if (playerManager.instance.b_scincefacility == false)
+            if (playerManager.instance.B_atkUpCount > 2)
             {
+                UpBtn.GetComponent<EnigneerungBayButton>().BtnOn.SetActive(false);
+                UpBtn.GetComponent<EnigneerungBayButton>().BtnOff.SetActive(false);
+                UpBtn.GetComponent<EnigneerungBayButton>().offBtn.SetActive(true);
 
+                UpBtn.GetComponent<Button>().targetGraphic = UpBtn.GetComponent<EnigneerungBayButton>().offBtn.GetComponent<Image>();
 
-                armor.GetComponent<EnigneerungBayButton>().BtnOn.SetActive(false);
-                armor.GetComponent<EnigneerungBayButton>().BtnOff.SetActive(true);
-
-                armor.GetComponent<Button>().targetGraphic = armor.GetComponent<EnigneerungBayButton>().BtnOff.GetComponent<Image>();
-
-                armor.GetComponent<Button>().interactable = false;
-
-
-
-            }
-            else
-            {
-                armor.GetComponent<EnigneerungBayButton>().BtnOn.SetActive(true);
-                armor.GetComponent<EnigneerungBayButton>().BtnOff.SetActive(false);
-
-                armor.GetComponent<Button>().interactable = true;
-
-                armor.GetComponent<Button>().targetGraphic = armor.GetComponent<EnigneerungBayButton>().BtnOn.GetComponent<Image>();
-
-
+                UpBtn.GetComponent<Button>().interactable = false;
 
             }
 
+        }
+        else if (Btn_Num == 2)
+        {
+            if (playerManager.instance.B_armorUpCount > 2)
+            {
+                UpBtn.GetComponent<EnigneerungBayButton>().BtnOn.SetActive(false);
+                UpBtn.GetComponent<EnigneerungBayButton>().BtnOff.SetActive(false);
+                UpBtn.GetComponent<EnigneerungBayButton>().offBtn.SetActive(true);
 
+                UpBtn.GetComponent<Button>().targetGraphic = UpBtn.GetComponent<EnigneerungBayButton>().offBtn.GetComponent<Image>();
+
+                UpBtn.GetComponent<Button>().interactable = false;
+            }
 
         }
 
@@ -153,36 +203,7 @@ public class EnigneerungBayButton : MonoBehaviour
 
     }
 
-    public void WeaponUpCountChek()
-    {
-
-        if (playerManager.instance.B_atkUpCount > 2)
-        {
-            weapon.GetComponent<EnigneerungBayButton>().BtnOn.SetActive(false);
-            weapon.GetComponent<EnigneerungBayButton>().BtnOff.SetActive(false);
-            weapon.GetComponent<EnigneerungBayButton>().offBtn.SetActive(true);
-
-            weapon.GetComponent<Button>().targetGraphic = weapon.GetComponent<EnigneerungBayButton>().offBtn.GetComponent<Image>();
-
-            weapon.GetComponent<Button>().interactable = false;
-
-        }
-
-    }
-    public void ArmorUpCountCheck()
-    {
-        if (playerManager.instance.B_armorUpCount > 2)
-        {
-            armor.GetComponent<EnigneerungBayButton>().BtnOn.SetActive(false);
-            armor.GetComponent<EnigneerungBayButton>().BtnOff.SetActive(false);
-            armor.GetComponent<EnigneerungBayButton>().offBtn.SetActive(true);
-
-            armor.GetComponent<Button>().targetGraphic = armor.GetComponent<EnigneerungBayButton>().offBtn.GetComponent<Image>();
-
-            armor.GetComponent<Button>().interactable = false;
-        }
-
-    }
+    
 
     public void B_atkupPlus()
     {

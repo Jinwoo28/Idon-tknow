@@ -261,8 +261,8 @@ MonoBehaviour:
   BtnOn: {fileID: 6454244593593018089}
   BtnOff: {fileID: 2706697557146917985}
   offBtn: {fileID: 3076154770014926401}
-  weapon: {fileID: 5392786933212251445}
-  armor: {fileID: 5392786933212251445, guid: f9692c73c8ffb334486199148b665e62, type: 3}
+  UpBtn: {fileID: 5392786933212251445}
+  Btn_Num: 1
 --- !u!1 &6454244593593018089
 GameObject:
   m_ObjectHideFlags: 0

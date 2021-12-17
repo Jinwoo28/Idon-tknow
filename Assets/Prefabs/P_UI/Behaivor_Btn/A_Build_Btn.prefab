@@ -85,7 +85,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2833436559795816387}
   - component: {fileID: 1742884022168756326}
-  - component: {fileID: 5126544096818761811}
+  - component: {fileID: 6439661533865203557}
   m_Layer: 5
   m_Name: A_Build_Btn
   m_TagString: Untagged
@@ -145,7 +145,7 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 21300000, guid: 9395a4f8bf5567047b3fa2a52bd7d444, type: 3}
     m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 21300000, guid: ace175c97f5df7d43829851231363e19, type: 3}
+    m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -157,9 +157,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5126544096818761811}
-        m_TargetAssemblyTypeName: UI.HUD.Action, Assembly-CSharp
-        m_MethodName: OnClick
+      - m_Target: {fileID: 6439661533865203557}
+        m_TargetAssemblyTypeName: UI.HUD.SCV_BuildAction, Assembly-CSharp
+        m_MethodName: scvBuild
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -169,7 +169,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &5126544096818761811
+--- !u!114 &6439661533865203557
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -178,6 +178,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4285337957525539783}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1198e60580f1544e8a1030a6ef1b911, type: 3}
+  m_Script: {fileID: 11500000, guid: 504a86ff5e4fd67479788a2875037b4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actions: {fileID: 11400000, guid: 11053b4fac9d61647aeaf486e8cc30cf, type: 2}

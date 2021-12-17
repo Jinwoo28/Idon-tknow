@@ -27,33 +27,7 @@ public class BarraksButton : MonoBehaviour
         academycheck();
 
     }
-    public void commedcentercheck()
-    {
-        if (playerManager.instance.b_commendcenter == false)
-        {
-            if (name == "Barracks")
-            {
-                Button BarrackBtn = gameObject.GetComponent<Button>();
-                BarrackBtn.interactable = false;
-                
-
-
-            }
-
-        }
-        else
-        {
-            if (name == "Barracks")
-            {
-                Button BarrackBtn = gameObject.GetComponent<Button>();
-                BarrackBtn.interactable = true;
-
-            }
-
-        }
-
-
-    }
+    
 
     public void academycheck()
     {
