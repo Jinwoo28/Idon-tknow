@@ -55,6 +55,7 @@ MonoBehaviour:
   highlight: {fileID: 4153367692463300656}
   playerUnits: {fileID: 0}
   actions: {fileID: 11400000, guid: 06aeba27790d108428b87359f267c2d0, type: 2}
+  BuildingImage: {fileID: 21300000, guid: 031f07a8ec46c3a4a9f02b3b0eda1443, type: 3}
   MaxMarkerDistance: 10
 --- !u!1 &8903242726772855329
 GameObject:

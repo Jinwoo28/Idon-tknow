@@ -13,6 +13,25 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.246366, y: 2.7178097, z: 3.9599178}
   m_Center: {x: -0.013213873, y: 1.2288942, z: 0.07928336}
+--- !u!95 &1277177894635643169
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3398447896333119310}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f9f244d25bd10a643ba9372d01518d45, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &500475129931684677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28,6 +47,7 @@ MonoBehaviour:
   isInteracting: 0
   highlight: {fileID: 7413978129460795082}
   actions: {fileID: 11400000, guid: d854fa33dc09b8741b86da75ccfb5ff4, type: 2}
+  Unitimage: {fileID: 21300000, guid: 79b0cba130d510f4b816f17dd958860d, type: 3}
 --- !u!114 &1542860484124565658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106,25 +126,6 @@ MonoBehaviour:
   S_attackRange: 0
   S_UpPlus: 0
   S_Speed: 0
---- !u!95 &1277177894635643169
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3398447896333119310}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f9f244d25bd10a643ba9372d01518d45, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5872732092658615484
 GameObject:
   m_ObjectHideFlags: 0

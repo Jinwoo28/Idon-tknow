@@ -20,6 +20,8 @@ namespace RTS.Player
         public int maxsupply;
         public int supply;
 
+        public int Minerals;
+        public int Gas;
         
         public int B_atkUpCount, B_armorUpCount, M_GroundatkUpCount, M_GroundarmorUpCount, M_AiratkUpCount, M_AirarmorUpCount;
 
@@ -76,7 +78,7 @@ namespace RTS.Player
 
 
 
-
+            Minerals = 0;
 
 
         }

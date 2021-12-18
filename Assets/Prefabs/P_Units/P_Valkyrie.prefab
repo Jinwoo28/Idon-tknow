@@ -118,6 +118,7 @@ MonoBehaviour:
   isInteracting: 0
   highlight: {fileID: 8776023511757208091}
   actions: {fileID: 11400000, guid: 7989e5bf3108fa94f97e31e8e3c4fac6, type: 2}
+  Unitimage: {fileID: 21300000, guid: 38d5efc38927a214d8b8b3e6f58438b8, type: 3}
 --- !u!114 &8013270667445040475
 MonoBehaviour:
   m_ObjectHideFlags: 0

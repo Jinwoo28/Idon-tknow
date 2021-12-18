@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UI.HUD;
-
+using UnityEngine.UI;
 namespace Interactables
 {
     public class IBuilding : Interactable
@@ -12,13 +12,15 @@ namespace Interactables
         public Transform playerUnits;
 
         public UI.HUD.PlayerAction actions;
+
+        public Sprite BuildingImage;
         //public GameObject spawnMakrer = null; //유닛이 생산되는 위치 
         //public GameObject spawnMakrer2 = null; //생산되고 이동할 위치 
 
         //public List<float> SpawnQueue = new List<float>();
         //public List<GameObject> spawnOrder = new List<GameObject>();
 
-        
+
         public float MaxMarkerDistance = 10f;
         
         private new void Awake()
@@ -29,12 +31,14 @@ namespace Interactables
         public override void OnInteractEnter()
         {
             UI.HUD.ActionFrame.instance.SetActionButtons(actions); //버튼 활성화
+            UI.HUD.ImageSet.instance.setImage(BuildingImage);
             base.OnInteractEnter();
             //add stuff
         }
         public override void OnInteractExit()
         {
             UI.HUD.ActionFrame.instance.ClearActions();
+            UI.HUD.ImageSet.instance.clearImage();
             base.OnInteractExit();
         }
 

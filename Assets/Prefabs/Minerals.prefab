@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4772634669587400764}
   - component: {fileID: 8472421431927867289}
   - component: {fileID: 5940495498995004243}
+  - component: {fileID: -8381538096249946560}
   m_Layer: 25
   m_Name: Minerals
   m_TagString: Untagged
@@ -81,3 +82,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &-8381538096249946560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5291761854170321542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4ea95695ce47d445bc1fde3b0694189, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Max: 1500
+  _Mode: 0

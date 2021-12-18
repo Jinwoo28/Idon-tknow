@@ -13,7 +13,12 @@ namespace Units.Player
         public LayerMask Minlayer;
 
         public GameObject MineralsTarget;
-        enum mode
+
+        public GameObject HandMinerals;
+
+        public bool Min_Working;
+        public bool MinFinish;
+        public enum mode
         {
             Normal,
             Minerals,
@@ -21,12 +26,16 @@ namespace Units.Player
 
         }
 
-        mode _Mode = mode.Normal;
+        public mode _Mode = mode.Normal;
 
 
         void Start()
         {
-
+            
+            _Mode = mode.Normal;
+        HandMinerals.SetActive(false);
+            Min_Working = false;
+            MinFinish = false;
         }
 
         // Update is called once per frame
@@ -39,6 +48,10 @@ namespace Units.Player
         {
             _Mode = mode.Minerals;
 
+        }
+        public void changNormals()
+        {
+            _Mode = mode.Normal;
         }
 
         public void scvAction()
@@ -93,22 +106,87 @@ namespace Units.Player
             
             
         }
-
-        private void OnCollisionEnter(Collision collision)
+        private void OnTriggerEnter(Collider other)
         {
+
             
-            if (collision.gameObject.layer == 25)
+            if (other.gameObject.layer == 25)
             {
-                mineralattack();
+
+                if (_Mode == mode.Minerals)
                 {
-
-                    collision.gameObject.GetComponent<Minerals>().mineralswork();
-
+                    Debug.Log("¹Ì³×¶ö ºÎµúÈû" + other.gameObject.layer);
+                    StartCoroutine("Work", other);
                 }
 
 
             }
+            if (other.gameObject.layer == 3) {
+                Debug.Log(" °Ç¹° ÅÍÄ¡");
+                if (other.gameObject.gameObject.GetComponent<Building.Player.PlayerBuilding>().buildingType.name == "CommandCenter")
+                {
+                    if (MinFinish == true)
+                    {
+                        HandMinerals.SetActive(false);
+                        MinFinish = false;
+                        RTS.Player.playerManager.instance.Minerals += 8;
 
+                    }
+
+
+                }
+                    }
+
+        }
+
+        public IEnumerator Work(Collider objt)
+        {
+
+            Debug.Log("ÀÛ¾÷Áß");
+            Min_Working = true;
+
+            yield return new WaitForSeconds(4f);
+            workFinish(objt);
+
+        }
+        public void workFinish(Collider objt)
+        {
+            objt.GetComponent<Minerals>().mineralattack();
+            HandMinerals.SetActive(true);
+            Min_Working = false;
+            MinFinish = true;
+
+        }
+        public void canslework()
+        {
+            StopCoroutine("Work");
+            Debug.Log("Ãë¼Ò");
+            _Mode = mode.Normal;
+
+        }
+        //private void tr
+        //{
+            
+        //    if (collision.gameObject.layer == 25)
+        //    {
+        //        Debug.Log("¹Ì³×¶ö ºÎµúÈû" + collision.gameObject.layer);
+
+        //        mineralattack();
+        //        {
+
+        //            collision.gameObject.GetComponent<Minerals>().mineralswork();
+
+        //        }
+
+
+        //    }
+
+        //}
+        public bool MineralsWorking()
+        {
+
+
+            return Min_Working;
         }
     }
 }

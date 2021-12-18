@@ -42,6 +42,8 @@ namespace Units
         public GameObject icon;
         public float spawnTime;
 
+        
+
 
         [Space(15)]
         [Header("Unit Base Stats")]

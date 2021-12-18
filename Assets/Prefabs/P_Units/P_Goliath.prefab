@@ -204,6 +204,7 @@ MonoBehaviour:
   isInteracting: 0
   highlight: {fileID: 1301927162427541973}
   actions: {fileID: 11400000, guid: b0a09e3c909a9c649a985a628c5b1d9d, type: 2}
+  Unitimage: {fileID: 21300000, guid: 56c6baa489d91ee429680c055aff7a83, type: 3}
 --- !u!1001 &2349544221361538845
 PrefabInstance:
   m_ObjectHideFlags: 0
