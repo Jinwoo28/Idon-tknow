@@ -49,7 +49,7 @@ namespace RTS.Player
             if (!isActivatePreview)
             {
                 if (Input.GetKeyDown(KeyCode.R)) SlotClick(0);
-                Debug.Log("Å¬¸¯");
+               
             }
 
             if (isActivatePreview)

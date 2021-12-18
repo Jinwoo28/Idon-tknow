@@ -69,7 +69,7 @@ public class cameracontrol : MonoBehaviour
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
-        Debug.Log("ddd");
+    
         if (Input.GetMouseButtonDown(0))
         {
             if (Physics.Raycast(ray, out hit, Mathf.Infinity))
