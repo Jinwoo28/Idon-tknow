@@ -90,9 +90,9 @@ public class PathFinding : MonoBehaviour
         UnitModeNum = (int)UnitMode._mode;
 
         // hold나 stop일 때 이동 멈춤
-        if (UnitModeNum == 3 || UnitModeNum == 1 /*|| UnitMode.isAtking*/)
+        if (UnitModeNum == 3 || UnitModeNum == 1 || UnitMode.isAtking)
         {
-            //Debug.Log(UnitMode.isAtking);
+            Debug.Log("공격중" + UnitMode.isAtking);
             StopCoroutine("FindPath");
             StopCoroutine("MoveUnit");
         }
@@ -147,6 +147,8 @@ public class PathFinding : MonoBehaviour
             openSet.Clear();
             closedSet.Clear();
             SetStartPos();
+            UnitMode.isAtking = false;
+
             //마우스 우클릭 시 새로운 길찾기를 위해 Open과 close를 리셋, 시작 위치도 현재 게임 오브젝트의 위치로 초기화
 
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -378,7 +380,7 @@ public class PathFinding : MonoBehaviour
 
                     this.transform.position = Vector3.MoveTowards(transform.position, currentWaypoint, speed * Time.deltaTime);
                     // Rb.MovePosition(currentWaypoint * speed * Time.deltaTime);
-                    Debug.Log("이동");
+                    //Debug.Log("이동");
                     thisPos = this.transform.position;
                     thisPos.y = Grid.gridinstance.NodePoint(currentWaypoint, cellsize).YDepthLB + 0.6f;
                     this.transform.position = thisPos;
@@ -388,7 +390,7 @@ public class PathFinding : MonoBehaviour
                 {
                     UO.UnitObstacle();
                     UnitMode.SwitchMode(Units.Player.PlayerUnit._Mode.STOP);
-                    Debug.Log("이동 끝");
+                   // Debug.Log("이동 끝");
                     break;
                 }
             }

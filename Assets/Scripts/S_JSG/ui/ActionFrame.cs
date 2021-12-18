@@ -33,7 +33,7 @@ namespace UI.HUD
         }
         public void SetActionButtons(PlayerAction actions ) //버튼이 샛팅될때 (건물 클릭)
         {
-            Debug.Log("1");
+           // Debug.Log("1");
             actionsList = actions;
             //spawnPoint = spawnLocation;
             //spawnPoint2 = spawnLocation2;

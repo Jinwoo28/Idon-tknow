@@ -60,7 +60,7 @@ namespace Units.Player
         public float eyesight;
 
 
-
+   
 
 
         private bool AutoAtk = false;   //자동공격이 가능한지 여부
@@ -81,7 +81,7 @@ namespace Units.Player
         {
 
             PF = GetComponentInParent<PathFinding>();
-
+          
             _mode = _Mode.STOP;
             baseStats = unitType.baseStats;
 
@@ -171,6 +171,8 @@ namespace Units.Player
                 search = true;
                 float distance_ = Vector3.Distance(this.transform.position, atkUnit.gameObject.transform.position);
 
+                _mode = _Mode.Attack;
+                Debug.Log("유닛탐색");
                 if (distance_ <= baseStats.eyesight && distance > baseStats.airattackrange)
                     MoveToAggroTarget();
 
