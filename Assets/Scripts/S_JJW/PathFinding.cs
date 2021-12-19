@@ -67,6 +67,8 @@ public class PathFinding : MonoBehaviour
 
     private Units.Player.PlayerUnit UnitMode;
 
+    private RaycastHit hit;
+
     private int UnitModeNum = 0;
     //===========================================
 
@@ -104,6 +106,42 @@ public class PathFinding : MonoBehaviour
             {
                 if (!baseStats.air) //공중유닛인지 판단
                 {
+                    if (unitType.name == "SCV")
+                    {
+                        Debug.Log("SCV");
+                        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+                        //int layerMask = 1 << LayerMask.NameToLayer("Sea");
+                        // LayerMask layerMask = new LayerMask();
+
+                        if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+                        {
+
+
+                            LayerMask layerHit = hit.transform.gameObject.layer;
+                            Debug.Log("레이어" + layerHit.value);
+
+                            switch (layerHit.value)
+                            {
+
+
+
+                                case 25:
+                                    Debug.Log("미네랄 클릭");
+                                    gameObject.GetComponentInChildren<Units.Player.scv>().changMinerals();
+
+                                    break;
+                                default:
+                                    Debug.Log("다른레이어");
+
+                                    gameObject.GetComponentInChildren<Units.Player.scv>().changNormals();
+                                    break;
+
+                            }
+
+
+                        }
+                    }
                     SetTarget();
                 }
                 else
