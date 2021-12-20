@@ -12,6 +12,7 @@ public class Craft  // 생성할 건물들을 분류할 클래스
     public string craftname; //건물 이름
     public GameObject previewCraft; //미리보기 프리펩
     public GameObject BuildCraft; // 실제 지어질 프리펩
+    
 
 }
 namespace RTS.Player
@@ -95,21 +96,27 @@ namespace RTS.Player
 
         public void SlotClick(int _SlotNumber)
         {
-            if (playerManager.instance.Minerals < InsPrefab.GetComponent<Building.Player.PlayerBuilding>().baseStats.mineral)
+            
+            
+                isActivatePreview = false;
+                InsPrefab = craft[_SlotNumber].BuildCraft;
+            Debug.Log("미네랄");
+            Debug.Log("미네랄"+craft[_SlotNumber].BuildCraft.gameObject.GetComponent<Building.Player.PlayerBuilding>().baseStats.mineral);
+            if (craft[_SlotNumber].BuildCraft.GetComponent<Building.Player.PlayerBuilding>().baseStats.mineral > playerManager.instance.Minerals)
             {
-                Debug.Log("미네랄 부족");
+
+                Debug.LogError("미네랄 부족");
                 return;
             }
             else
             {
-                isActivatePreview = false;
-
+                playerManager.instance.Minerals -= craft[_SlotNumber].BuildCraft.GetComponent<Building.Player.PlayerBuilding>().baseStats.mineral;
                 PreviewPrefab = Instantiate(craft[_SlotNumber].previewCraft);
-                InsPrefab = craft[_SlotNumber].BuildCraft;
                 Debug.Log("프리뷰 : " + isActivatePreview);
                 isActivatePreview = true;
                 Debug.Log("프리뷰2 : " + isActivatePreview);
             }
+            
             
         }
 
