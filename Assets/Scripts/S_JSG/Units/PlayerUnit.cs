@@ -17,6 +17,8 @@ namespace Units.Player
             Attack
         }
 
+        
+
         public UnitStatDisplay statDisplay;
 
         public BasicUnit unitType;
@@ -177,19 +179,26 @@ namespace Units.Player
                 _mode = _Mode.Attack;
                 Debug.Log("유닛탐색");
                 if (distance_ <= baseStats.eyesight && distance > baseStats.airattackrange)
+                {
                     MoveToAggroTarget();
+                    this.transform.LookAt(rangeColliders[0].gameObject.transform.position);
+                }
 
                 else if (distance <= baseStats.airattackrange)
+                {
                     Attack();
+                    this.transform.LookAt(rangeColliders[0].gameObject.transform.position);
+                }
             }
 
         }
 
 
 
-        private void MoveToAggroTarget() //타겟을 찾으면 따라감
+
+            private void MoveToAggroTarget() //타겟을 찾으면 따라감
         {
-                        isAtking = false;
+            isAtking = false;
             if (Searching)
             {
                 StartCoroutine("ReSetTargetPos");
@@ -210,7 +219,7 @@ namespace Units.Player
                     else
                     {
 
-                        if (atkCooldown <= 0)
+                        if (atkCooldown <= 0&&baseStats.airattackrange> distance)
                         {
                             atkUnit.GetComponentInChildren<UnitStatDisplay>().TakeDamage(baseStats.airattack);
                             //aggroUnit.TakeDamage(baseStats.attack);
@@ -228,7 +237,7 @@ namespace Units.Player
                     }
                     else
                     {
-                        if (atkCooldown <= 0)
+                        if (atkCooldown <= 0&&atkRange>distance)
                         {
                             Debug.Log("공격");
                             atkUnit.GetComponentInChildren<UnitStatDisplay>().TakeDamage(baseStats.attack);

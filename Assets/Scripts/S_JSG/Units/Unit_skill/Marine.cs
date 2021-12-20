@@ -9,6 +9,7 @@ namespace Units.Player
     public class Marine : MonoBehaviour
     {
         public GameObject marine;
+        [SerializeField] private ParticleSystem particle = null;
 
 
         void Start()
