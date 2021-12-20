@@ -92,6 +92,7 @@ MonoBehaviour:
   rangeColliders: []
   aggerTarget: {fileID: 0}
   distance: 0
+  particle: {fileID: 0}
   attack: 0
   airattack: 0
   atkspeed: 0
@@ -202,6 +203,7 @@ MonoBehaviour:
     ground_type: 0
     air_type: 0
     unit_size: 0
+  enemy: 0
 --- !u!114 &7515748534352316355
 MonoBehaviour:
   m_ObjectHideFlags: 0
