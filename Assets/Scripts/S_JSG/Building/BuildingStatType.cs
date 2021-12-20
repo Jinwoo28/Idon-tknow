@@ -9,7 +9,8 @@ namespace Building
         [System.Serializable]
         public class Base
         {
-            public float mineral, gas, health, armor, eyesight;
+            public int mineral, gas, health;
+                public float armor, eyesight;
 
             public int supply;
 

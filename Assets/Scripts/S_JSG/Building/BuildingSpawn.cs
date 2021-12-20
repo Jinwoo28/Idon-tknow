@@ -55,15 +55,23 @@ namespace Building
                 }
                 else
                 {
-                    if (spawnOrder.Count < 5 && SpawnQueue.Count < 5)
+                    if (unit.baseStats.mineral <= RTS.Player.playerManager.instance.Minerals)
                     {
+                        RTS.Player.playerManager.instance.Minerals -= unit.baseStats.mineral;
+                        if (spawnOrder.Count < 5 && SpawnQueue.Count < 5)
+                        {
 
-                        SpawnQueue.Add(unit.spawnTime);
-                        spawnOrder.Add(unit.unitPrefab);
+                            SpawnQueue.Add(unit.spawnTime);
+                            spawnOrder.Add(unit.unitPrefab);
+                        }
+                        else
+                        {
+                            Debug.Log("full");
+                        }
                     }
                     else
                     {
-                        Debug.Log("full");
+                        Debug.Log("¹Ì³×¶ö ºÎÁ·");
                     }
                 }
             }
