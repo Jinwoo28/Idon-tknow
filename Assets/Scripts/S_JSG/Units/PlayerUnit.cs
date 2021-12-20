@@ -44,6 +44,7 @@ namespace Units.Player
 
         private Camera Mcamera;
 
+        [SerializeField] private ParticleSystem particle = null;
 
 
         private Vector3 destination;
@@ -118,6 +119,11 @@ namespace Units.Player
             ShortKey();
 
             Debug.Log(_mode);
+
+            if(!isAtking) {
+                if(particle!=null)
+                particle.Stop();
+            }
         }
 
         private void AutoAtkSetting()  //모드에 따라 자동공격이 가능한지 결정
@@ -225,6 +231,18 @@ namespace Units.Player
                             //aggroUnit.TakeDamage(baseStats.attack);
                             atkCooldown = baseStats.atkspeed;
                             isAtking = true;
+
+                            if (particle != null)
+                            {
+                                particle.Play();
+                                Vector3 ParticlePos = new Vector3(
+                                    Mathf.Abs(this.transform.position.x - rangeColliders[0].transform.position.x),
+                                     Mathf.Abs(this.transform.position.y - rangeColliders[0].transform.position.y),
+                                      Mathf.Abs(this.transform.position.z - rangeColliders[0].transform.position.z));
+                                ParticlePos.y = 1.5f;
+                                particle.transform.position = this.transform.position + ParticlePos;
+
+                            }
                         }
 
                     }
@@ -244,6 +262,19 @@ namespace Units.Player
                             //aggroUnit.TakeDamage(baseStats.attack);
                             atkCooldown = baseStats.atkspeed;
                             isAtking = true;
+
+                            if(particle != null)
+                            {
+                                particle.Play();
+                                Vector3 ParticlePos = new Vector3(
+                                    Mathf.Abs(this.transform.position.x - rangeColliders[0].transform.position.x),
+                                     Mathf.Abs(this.transform.position.y -rangeColliders[0].transform.position.y),
+                                      Mathf.Abs(this.transform.position.z - rangeColliders[0].transform.position.z));
+                                ParticlePos.y = 1.5f;
+                                particle.transform.position = this.transform.position + ParticlePos;
+
+                            }
+
                         }
 
                     }
