@@ -21,24 +21,22 @@ public class MarineAnima : MonoBehaviour
     {
         unitmode = (int)PU._mode;
 
+       
+    }
+
+    public void AnimaPlay()
+    {
         if (unitmode == 4)
         {
             PA.SetInteger("Move", 1);
-            particle.Stop();
+
         }
         else if (unitmode == 5)
         {
             PA.SetInteger("Move", 2);
-            particle.Play(); 
-        Vector3 ParticlePos = this.transform.position-PU.rangeColliders[0].transform.position;
-            Debug.Log(ParticlePos);
-            ParticlePos.y = 1.5f;
-            particle.transform.position = ParticlePos;
-
-
         }
         else PA.SetInteger("Move", 0);
-        particle.Stop();
+
 
     }
 }
