@@ -13,13 +13,14 @@ namespace Building.Enemy
 
         public BuildingStatType.Base baseStats;
 
-        public Units.UnitStatDisplay statDisplay;
+        public Units.enemyStatDisplay statDisplay;
 
         void Start()
         {
 
             baseStats = buildingType.baseStats;
             statDisplay.SetStatDisplayBasicBuilding(baseStats, false);
+            RTS.Player.GameManager.instance.EnemyCheck.Add(gameObject);
 
         }
 

@@ -62,13 +62,13 @@ namespace Units
         {
             if (isPlayerUnit)
             {
-                InputManager.InputHandler.instance.selectedUnits.Remove(gameObject.transform.parent);
-                RTS.Player.playerManager.instance.supply -= gameObject.transform.parent.GetComponent<Enemy.enemyUnit>().baseStats.supply;
+                //InputManager.InputHandler.instance.selectedUnits.Remove(gameObject.transform.parent);
+                //RTS.Player.playerManager.instance.supply -= gameObject.transform.parent.GetComponent<Enemy.enemyUnit>().baseStats.supply;
                 Destroy(gameObject.transform.parent.gameObject);
             }
             else
             {
-                RTS.Player.GameManager.instance.BuildingCheck.Remove(gameObject.transform.parent.gameObject);
+                RTS.Player.GameManager.instance.EnemyCheck.Remove(gameObject.transform.parent.gameObject);
                 // for (int i = 0;i<= RTS.Player.GameManager.instance.BuildingCheck.Count;i++)
                 // {
                 //     // RTS.Player.GameManager.instance.BuildingCheck[i].GetComponent<Building.Player.PlayerBuilding>().buildingType.name==""
@@ -80,8 +80,8 @@ namespace Units
                 // //    }
 
                 // }
-                RTS.Player.GameManager.instance.buildingnamecheck(this.gameObject.transform.parent.GetComponent<Building.Enemy.enemyBuilding>().buildingType.name);
-                RTS.Player.playerManager.instance.maxsupply -= gameObject.transform.parent.GetComponent<Building.Enemy.enemyBuilding>().baseStats.supply;
+                //RTS.Player.GameManager.instance.buildingnamecheck(this.gameObject.transform.parent.GetComponent<Building.Enemy.enemyBuilding>().buildingType.name);
+               // RTS.Player.playerManager.instance.maxsupply -= gameObject.transform.parent.GetComponent<Building.Enemy.enemyBuilding>().baseStats.supply;
                 Destroy(gameObject.transform.parent.parent.gameObject);
             }
         }

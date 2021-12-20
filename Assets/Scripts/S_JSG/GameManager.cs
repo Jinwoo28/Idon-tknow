@@ -13,6 +13,7 @@ namespace RTS.Player
 
         public List<GameObject> BuildingCheck = new List<GameObject>();
 
+        public List<GameObject> EnemyCheck = new List<GameObject>();
 
         private void Awake()
         {

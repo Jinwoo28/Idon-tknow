@@ -57,19 +57,6 @@ MonoBehaviour:
   rangeColliders: []
   aggerTarget: {fileID: 0}
   distance: 0
---- !u!114 &6617386224992919403
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1888910882001337986}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 204a9979acb46334584a9654d73fa2ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  marine: {fileID: 1888910882001337986}
 --- !u!1 &5040215346496990929
 GameObject:
   m_ObjectHideFlags: 0
