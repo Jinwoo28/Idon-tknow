@@ -14,7 +14,7 @@ namespace Building {
         private float atkRange = 7f;
         private float atkCooldown;
 
-
+        public bool enemy;
         
 
         public float distance; //private
@@ -45,7 +45,14 @@ namespace Building {
             if (atkCooldown>=-1)
             atkCooldown -= Time.deltaTime;
 
-            checkForEnemyTargets();
+            if (enemy == false)
+            {
+                checkForEnemyTargets();
+            }
+            else
+            {
+                checkForPlayerTargets();
+            }
 
             if (atkUnit == true)
             {
@@ -79,6 +86,30 @@ namespace Building {
                 }
             }
            
+        }
+        private void checkForPlayerTargets()
+        {
+
+            rangeColliders = Physics.OverlapSphere(transform.position, missileturret.GetComponent<Enemy.enemyBuilding>().baseStats.eyesight, Units.UnitHandler.instance.pUnitLayer);
+
+            if (rangeColliders.Length > 0)
+            {
+                for (int i = 0; i < rangeColliders.Length; i++)
+                {
+                    if (rangeColliders[i].gameObject.GetComponent<Units.Enemy.enemyUnit>().baseStats.air == true)
+                    {
+
+
+                        atkUnit = rangeColliders[i].gameObject.GetComponent<Units.Enemy.enemyUnit>();
+
+
+                        break;
+
+                    }
+                }
+            }
+
+
         }
         private void turretAttack()
         {

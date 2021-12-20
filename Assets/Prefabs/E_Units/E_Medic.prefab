@@ -148,6 +148,7 @@ MonoBehaviour:
     ground_type: 0
     air_type: 0
     unit_size: 0
+  enemy: 1
 --- !u!114 &4173490715985873815
 MonoBehaviour:
   m_ObjectHideFlags: 0

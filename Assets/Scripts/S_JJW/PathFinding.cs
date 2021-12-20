@@ -69,6 +69,7 @@ public class PathFinding : MonoBehaviour
 
     private RaycastHit hit;
 
+    public bool enemy;
     private int UnitModeNum = 0;
     //===========================================
 
@@ -84,74 +85,87 @@ public class PathFinding : MonoBehaviour
         UO = GetComponent<UnitObsTest>();
         UO.UnitObstacle();
 
-        speed = UnitMode.speed;
+        if (enemy == true)
+        {
+            return;
+        }
+        else
+        {
+            speed = UnitMode.speed;
+        }
     }
 
     private void Update()
     {
-        UnitModeNum = (int)UnitMode._mode;
-
-        // hold나 stop일 때 이동 멈춤
-        if (UnitModeNum == 3 || UnitModeNum == 1 || UnitMode.isAtking)
+        if (enemy == true)
         {
-            Debug.Log("공격중" + UnitMode.isAtking);
-            StopCoroutine("FindPath");
-            StopCoroutine("MoveUnit");
+            return;
         }
-
-        if (iUnit.isSelected()) //유닛이 선택이 되고
+        else
         {
+            UnitModeNum = (int)UnitMode._mode;
 
-            if (Input.GetMouseButtonDown(1)) // 마우스 우클릭을 하면
+            // hold나 stop일 때 이동 멈춤
+            if (UnitModeNum == 3 || UnitModeNum == 1 || UnitMode.isAtking)
             {
-                if (!baseStats.air) //공중유닛인지 판단
+                Debug.Log("공격중" + UnitMode.isAtking);
+                StopCoroutine("FindPath");
+                StopCoroutine("MoveUnit");
+            }
+
+            if (iUnit.isSelected()) //유닛이 선택이 되고
+            {
+
+                if (Input.GetMouseButtonDown(1)) // 마우스 우클릭을 하면
                 {
-                    if (unitType.name == "SCV")
+                    if (!baseStats.air) //공중유닛인지 판단
                     {
-                        Debug.Log("SCV");
-                        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-                        //int layerMask = 1 << LayerMask.NameToLayer("Sea");
-                        // LayerMask layerMask = new LayerMask();
-
-                        if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+                        if (unitType.name == "SCV")
                         {
+                            Debug.Log("SCV");
+                            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
+                            //int layerMask = 1 << LayerMask.NameToLayer("Sea");
+                            // LayerMask layerMask = new LayerMask();
 
-                            LayerMask layerHit = hit.transform.gameObject.layer;
-                            Debug.Log("레이어" + layerHit.value);
-
-                            switch (layerHit.value)
+                            if (Physics.Raycast(ray, out hit, Mathf.Infinity))
                             {
 
 
+                                LayerMask layerHit = hit.transform.gameObject.layer;
+                                Debug.Log("레이어" + layerHit.value);
 
-                                case 25:
-                                    Debug.Log("미네랄 클릭");
-                                    gameObject.GetComponentInChildren<Units.Player.scv>().changMinerals();
+                                switch (layerHit.value)
+                                {
 
-                                    break;
-                                default:
-                                    Debug.Log("다른레이어");
 
-                                    gameObject.GetComponentInChildren<Units.Player.scv>().changNormals();
-                                    break;
+
+                                    case 25:
+                                        Debug.Log("미네랄 클릭");
+                                        gameObject.GetComponentInChildren<Units.Player.scv>().changMinerals();
+
+                                        break;
+                                    default:
+                                        Debug.Log("다른레이어");
+
+                                        gameObject.GetComponentInChildren<Units.Player.scv>().changNormals();
+                                        break;
+
+                                }
+
 
                             }
-
-
                         }
+                        SetTarget();
                     }
-                    SetTarget();
-                }
-                else
-                {
-                    FlyingTarget();
-                }
+                    else
+                    {
+                        FlyingTarget();
+                    }
 
+                }
             }
         }
-
         //FloyingMoveUnit(Movedis);
     }
 
