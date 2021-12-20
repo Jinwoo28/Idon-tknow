@@ -57,6 +57,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   missileturret: {fileID: 6971661532821191374}
+  enemy: 1
   distance: 0
   rangeColliders: []
   air_type: 2
