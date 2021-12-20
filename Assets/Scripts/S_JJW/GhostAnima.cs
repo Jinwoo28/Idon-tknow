@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MedicAnima : MonoBehaviour
+public class GhostAnima : MonoBehaviour
 {
     private Animator PA = null;
     private Units.Player.PlayerUnit PU = null;

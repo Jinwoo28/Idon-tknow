@@ -115,6 +115,18 @@ MonoBehaviour:
   highlight: {fileID: 2655995798156976364}
   actions: {fileID: 11400000, guid: 44ef0b5a161c1bd48bc5828b514d7433, type: 2}
   Unitimage: {fileID: 21300000, guid: 47ca1396a50e1264ca42a7cd0a5b4a23, type: 3}
+--- !u!114 &3060754738618119709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1888910882001337986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b11195c3dec53c146a58e02c33ee0252, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5040215346496990929
 GameObject:
   m_ObjectHideFlags: 0

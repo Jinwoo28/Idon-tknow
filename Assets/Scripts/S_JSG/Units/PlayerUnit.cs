@@ -142,9 +142,10 @@ namespace Units.Player
 
         public void SwitchMode(_Mode UM)
         {
-            _mode =
             _mode = UM;
         }
+
+        
 
         public void SetDestinatin(Vector3 dest) //목표지점
         {
