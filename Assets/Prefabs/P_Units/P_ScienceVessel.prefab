@@ -199,6 +199,7 @@ MonoBehaviour:
   atkUpPlus: 0
   DropCount: 0
   eyesight: 0
+  isAtking: 0
 --- !u!1001 &919094182071689266
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -586,6 +587,11 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -2648006452689597120, guid: 620524ea284a3234b82528f5938ab9c5,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: dfc8517ff64e68c449bd328b32a32f3e, type: 2}
     - target: {fileID: -93644311446669682, guid: 620524ea284a3234b82528f5938ab9c5,
         type: 3}
       propertyPath: m_CastShadows
@@ -621,11 +627,21 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1957819986760629781, guid: 620524ea284a3234b82528f5938ab9c5,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: dfc8517ff64e68c449bd328b32a32f3e, type: 2}
     - target: {fileID: 2128355837191441527, guid: 620524ea284a3234b82528f5938ab9c5,
         type: 3}
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2128355837191441527, guid: 620524ea284a3234b82528f5938ab9c5,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: dfc8517ff64e68c449bd328b32a32f3e, type: 2}
     - target: {fileID: 3103574882722468338, guid: 620524ea284a3234b82528f5938ab9c5,
         type: 3}
       propertyPath: m_CastShadows
@@ -651,6 +667,11 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7609523554527086291, guid: 620524ea284a3234b82528f5938ab9c5,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: dfc8517ff64e68c449bd328b32a32f3e, type: 2}
     - target: {fileID: 7960158976996931061, guid: 620524ea284a3234b82528f5938ab9c5,
         type: 3}
       propertyPath: m_Layer

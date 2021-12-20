@@ -56,7 +56,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed7dcf70204f7ee48bd75c1e33ed771c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  missileturret: {fileID: 6819576664170568364}
+  missileturret: {fileID: 6971661532821191374}
   distance: 0
   rangeColliders: []
   air_type: 2
@@ -76,6 +76,7 @@ MonoBehaviour:
   highlight: {fileID: 1390023756599782203}
   playerUnits: {fileID: 0}
   actions: {fileID: 11400000, guid: a602aec760663df4383ed1d584309345, type: 2}
+  BuildingImage: {fileID: 0}
   MaxMarkerDistance: 10
 --- !u!114 &2248035198712373802
 MonoBehaviour:
@@ -486,6 +487,11 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5754732837579649886, guid: 98cf0956b41d746498524078a9800df0,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 36387d99f5e423e4e81ce550f92ffdb1, type: 2}
     - target: {fileID: -2519092360280523269, guid: 98cf0956b41d746498524078a9800df0,
         type: 3}
       propertyPath: m_Layer
@@ -496,6 +502,11 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -2473424575180118478, guid: 98cf0956b41d746498524078a9800df0,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 36387d99f5e423e4e81ce550f92ffdb1, type: 2}
     - target: {fileID: 919132149155446097, guid: 98cf0956b41d746498524078a9800df0,
         type: 3}
       propertyPath: m_Name

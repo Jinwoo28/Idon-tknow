@@ -172,6 +172,7 @@ MonoBehaviour:
   atkUpPlus: 0
   DropCount: 0
   eyesight: 0
+  isAtking: 0
 --- !u!1001 &4480415443460583545
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -279,6 +280,11 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1099556530389837002, guid: 05fef32200960d44da696807adf145e1,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: dfc8517ff64e68c449bd328b32a32f3e, type: 2}
     - target: {fileID: 3559817854460706613, guid: 05fef32200960d44da696807adf145e1,
         type: 3}
       propertyPath: m_Layer
@@ -294,6 +300,11 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7152520436077478166, guid: 05fef32200960d44da696807adf145e1,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: dfc8517ff64e68c449bd328b32a32f3e, type: 2}
     - target: {fileID: 9017328541939089309, guid: 05fef32200960d44da696807adf145e1,
         type: 3}
       propertyPath: m_Layer

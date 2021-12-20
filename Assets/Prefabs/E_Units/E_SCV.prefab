@@ -25,7 +25,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c76e16f7caebcc741bbd25f941fbe6e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitType: {fileID: 0}
+  unitType: {fileID: 11400000, guid: 392918586934f394a8e0392d4343f16e, type: 2}
   baseStats:
     mineral: 0
     gas: 0
@@ -53,7 +53,7 @@ MonoBehaviour:
     ground_type: 0
     air_type: 0
     unit_size: 0
-  statDisplay: {fileID: 0}
+  statDisplay: {fileID: 7780381814388648347}
   rangeColliders: []
   aggerTarget: {fileID: 0}
   distance: 0
@@ -224,6 +224,11 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5363424281805771908, guid: 1a33d51a3368ac240b100aebfec83977,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 36387d99f5e423e4e81ce550f92ffdb1, type: 2}
     - target: {fileID: -2181743766629440291, guid: 1a33d51a3368ac240b100aebfec83977,
         type: 3}
       propertyPath: m_Layer
@@ -234,6 +239,11 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1806680513116206669, guid: 1a33d51a3368ac240b100aebfec83977,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 36387d99f5e423e4e81ce550f92ffdb1, type: 2}
     - target: {fileID: -1599826595754709761, guid: 1a33d51a3368ac240b100aebfec83977,
         type: 3}
       propertyPath: m_Layer
@@ -264,6 +274,11 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1442450553484104045, guid: 1a33d51a3368ac240b100aebfec83977,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 36387d99f5e423e4e81ce550f92ffdb1, type: 2}
     - target: {fileID: 5252682845850649624, guid: 1a33d51a3368ac240b100aebfec83977,
         type: 3}
       propertyPath: m_Layer
@@ -274,11 +289,21 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6745302439343835087, guid: 1a33d51a3368ac240b100aebfec83977,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 36387d99f5e423e4e81ce550f92ffdb1, type: 2}
     - target: {fileID: 8253250483166296987, guid: 1a33d51a3368ac240b100aebfec83977,
         type: 3}
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8253250483166296987, guid: 1a33d51a3368ac240b100aebfec83977,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 36387d99f5e423e4e81ce550f92ffdb1, type: 2}
     - target: {fileID: 8567717000986892130, guid: 1a33d51a3368ac240b100aebfec83977,
         type: 3}
       propertyPath: m_CastShadows
@@ -481,6 +506,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4112df0717e1b1040bc4600f7025c7f8, type: 3}
+--- !u!114 &7780381814388648347 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6067417992144604633, guid: 4112df0717e1b1040bc4600f7025c7f8,
+    type: 3}
+  m_PrefabInstance: {fileID: 4596684891027711042}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a8e2ff54cea3cb4b9d2f1d8bced76bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6890754031393540486
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -19,6 +19,8 @@ public class cameracontrol : MonoBehaviour
 
     public GameObject DDD;
 
+    public GameObject DebugSp = null;
+
 
     void Start()
     {
@@ -30,8 +32,8 @@ public class cameracontrol : MonoBehaviour
     {
         MouseMove();
 
-       // CamPosSet();
-        MoveToMinimapPos();
+        CamPosSet();
+       // MoveToMinimapPos();
     }
 
     public void MouseMove()
@@ -103,12 +105,17 @@ public class cameracontrol : MonoBehaviour
             {
                 thisPos.x = hit.point.x;
                 thisPos.z = hit.point.z;
-                Debug.Log(thisPos);
+                Debug.Log(hit.transform.name + " / " + hit.point);
 
                 //Instantiate(DDD, thisPos, Quaternion.identity);
 
-                this.transform.position = thisPos;
+                
+                this.transform.position = thisPos * (MiniCam.orthographicSize / 100f);
+
+                Debug.DrawRay(MiniCam.ScreenToWorldPoint(Input.mousePosition), MiniCam.transform.forward * 100f);
             }
         }
+        //thisPos.y = 10;
+        //DebugSp.transform.position = thisPos;
     }
 }

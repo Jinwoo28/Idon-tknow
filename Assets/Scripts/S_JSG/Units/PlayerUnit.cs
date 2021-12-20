@@ -130,10 +130,12 @@ namespace Units.Player
             if (iUnit.isSelected())
             {
                 if (Input.GetKeyDown(KeyCode.H)) _mode = _Mode.HOLD;
+                isAtking = false;
             }
             if (iUnit.isSelected())
             {
                 if (Input.GetKeyDown(KeyCode.S)) _mode = _Mode.STOP;
+                isAtking = false;
             }
 
         }

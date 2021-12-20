@@ -101,6 +101,7 @@ MonoBehaviour:
   atkUpPlus: 0
   DropCount: 0
   eyesight: 0
+  isAtking: 0
 --- !u!114 &9075652970451935966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -288,6 +289,11 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6673802680727711063, guid: fd5468baef9790f4d943c3202b267693,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: dfc8517ff64e68c449bd328b32a32f3e, type: 2}
     - target: {fileID: -5971410051629635644, guid: fd5468baef9790f4d943c3202b267693,
         type: 3}
       propertyPath: m_CastShadows
@@ -353,6 +359,11 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5423252559524178949, guid: fd5468baef9790f4d943c3202b267693,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: dfc8517ff64e68c449bd328b32a32f3e, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd5468baef9790f4d943c3202b267693, type: 3}
 --- !u!1 &3398447896333119310 stripped
@@ -574,6 +585,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2983769505776846855, guid: d79457030b3bc624b9d58f8c53043b6e,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2983769505776846855, guid: d79457030b3bc624b9d58f8c53043b6e,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2983769505776846855, guid: d79457030b3bc624b9d58f8c53043b6e,
         type: 3}

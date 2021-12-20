@@ -66,6 +66,7 @@ MonoBehaviour:
   atkUpPlus: 0
   DropCount: 0
   eyesight: 0
+  isAtking: 0
 --- !u!114 &8617616163894480670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -436,6 +437,11 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7628274954807177987, guid: 7d05d3f511cde35459436476caaad976,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: dfc8517ff64e68c449bd328b32a32f3e, type: 2}
     - target: {fileID: -7395704305543789238, guid: 7d05d3f511cde35459436476caaad976,
         type: 3}
       propertyPath: m_Layer

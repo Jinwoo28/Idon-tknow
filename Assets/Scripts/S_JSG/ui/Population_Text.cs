@@ -23,5 +23,16 @@ public class Population_Text : MonoBehaviour
             }
             this.GetComponent<Text>().color = Color.red;
         }
+        else
+        {
+            if (RTS.Player.playerManager.instance.maxsupply < 200)
+                this.GetComponent<Text>().text = RTS.Player.playerManager.instance.supply.ToString() + " / " + RTS.Player.playerManager.instance.maxsupply.ToString();
+            else
+            {
+                this.GetComponent<Text>().text = RTS.Player.playerManager.instance.supply.ToString() + " / " + RTS.Player.playerManager.instance.limitsupply.ToString();
+            }
+
+
+        }
     }
 }

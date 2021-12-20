@@ -55,6 +55,7 @@ MonoBehaviour:
   highlight: {fileID: 4153367692463300656}
   playerUnits: {fileID: 0}
   actions: {fileID: 11400000, guid: 06aeba27790d108428b87359f267c2d0, type: 2}
+  BuildingImage: {fileID: 0}
   MaxMarkerDistance: 10
 --- !u!1 &8903242726772855329
 GameObject:
@@ -169,6 +170,11 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 447aadea65649c847b64335b94584115,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 36387d99f5e423e4e81ce550f92ffdb1, type: 2}
     - target: {fileID: 919132149155446097, guid: 447aadea65649c847b64335b94584115,
         type: 3}
       propertyPath: m_Name

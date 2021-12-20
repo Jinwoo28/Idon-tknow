@@ -366,6 +366,11 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -3216998209466556742, guid: c272b0c2a783adc48949fd4348a5ee2f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 36387d99f5e423e4e81ce550f92ffdb1, type: 2}
     - target: {fileID: -3215555783603854218, guid: c272b0c2a783adc48949fd4348a5ee2f,
         type: 3}
       propertyPath: m_Layer
@@ -391,6 +396,11 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1684107799473140416, guid: c272b0c2a783adc48949fd4348a5ee2f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 36387d99f5e423e4e81ce550f92ffdb1, type: 2}
     - target: {fileID: -1439730007547781893, guid: c272b0c2a783adc48949fd4348a5ee2f,
         type: 3}
       propertyPath: m_CastShadows
@@ -416,6 +426,11 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1129496810705857465, guid: c272b0c2a783adc48949fd4348a5ee2f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 36387d99f5e423e4e81ce550f92ffdb1, type: 2}
     - target: {fileID: 1746654310787607633, guid: c272b0c2a783adc48949fd4348a5ee2f,
         type: 3}
       propertyPath: m_CastShadows
@@ -466,6 +481,11 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6944656104360116776, guid: c272b0c2a783adc48949fd4348a5ee2f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 36387d99f5e423e4e81ce550f92ffdb1, type: 2}
     - target: {fileID: 6979220930480056898, guid: c272b0c2a783adc48949fd4348a5ee2f,
         type: 3}
       propertyPath: m_CastShadows

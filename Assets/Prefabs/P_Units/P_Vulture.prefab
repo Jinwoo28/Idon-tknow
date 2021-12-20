@@ -96,6 +96,7 @@ MonoBehaviour:
   atkUpPlus: 0
   DropCount: 0
   eyesight: 0
+  isAtking: 0
 --- !u!1 &3010815952436265862
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,6 +254,12 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6588312178227178728, guid: 817c976c276df2a41acbdde3688a1098,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -1580535799172915004, guid: c272b0c2a783adc48949fd4348a5ee2f,
+        type: 3}
     - target: {fileID: -5531720581255164614, guid: 817c976c276df2a41acbdde3688a1098,
         type: 3}
       propertyPath: m_Layer
@@ -268,6 +275,11 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1602238644875344336, guid: 817c976c276df2a41acbdde3688a1098,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: dfc8517ff64e68c449bd328b32a32f3e, type: 2}
     - target: {fileID: 919132149155446097, guid: 817c976c276df2a41acbdde3688a1098,
         type: 3}
       propertyPath: m_Name
@@ -293,6 +305,11 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1526765091555345458, guid: 817c976c276df2a41acbdde3688a1098,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: dfc8517ff64e68c449bd328b32a32f3e, type: 2}
     - target: {fileID: 7790843065575244577, guid: 817c976c276df2a41acbdde3688a1098,
         type: 3}
       propertyPath: m_CastShadows

@@ -62,7 +62,9 @@ namespace Building {
 
             rangeColliders = Physics.OverlapSphere(transform.position, missileturret.GetComponent <Player.PlayerBuilding>().baseStats.eyesight, Units.UnitHandler.instance.eUnitLayer);
 
-                           for (int i = 0; i < rangeColliders.Length;)
+            if (rangeColliders.Length > 0)
+            {
+                for (int i = 0; i < rangeColliders.Length;i++)
                 {
                     if (rangeColliders[i].gameObject.GetComponent<Units.Enemy.enemyUnit>().baseStats.air == true)
                     {
@@ -75,6 +77,7 @@ namespace Building {
 
                     }
                 }
+            }
            
         }
         private void turretAttack()
