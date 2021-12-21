@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 namespace RTS.Player
 {
@@ -24,6 +24,21 @@ namespace RTS.Player
                 instance = this;
             }
 
+        }
+
+        public void StartGame()
+        {
+            SceneManager.LoadScene(1);
+        }
+
+        public void ReStart()
+        {
+            SceneManager.LoadScene(0);
+        }
+
+        public void ExitGame()
+        {
+            Application.Quit();
         }
 
         public void buildingnamecheck(string objectname)
@@ -153,10 +168,7 @@ namespace RTS.Player
 
             if (EnemyCheck.Count == 0)
             {
-
-                //½Â¸®¾À 
-
-
+                SceneManager.LoadScene(2);
             }
 
 
@@ -165,14 +177,12 @@ namespace RTS.Player
         {
             if (BuildingCheck.Count == 0)
             {
-                //ÆÐ¹è¾À
-
+                SceneManager.LoadScene(3);
             }
-
-
-
 
         }
     }
+
+  
 }
 
