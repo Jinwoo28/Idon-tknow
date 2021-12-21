@@ -169,6 +169,11 @@ public class PathFinding : MonoBehaviour
         //FloyingMoveUnit(Movedis);
     }
 
+    public void StopFathPinding()
+    {
+        StopCoroutine("FindPath");
+        StopCoroutine("MoveUnit");
+    }
 
     // ==========================================================
     //유닛의 현재 위치를 길찾기의 시작 위치로 설정
@@ -429,12 +434,12 @@ public class PathFinding : MonoBehaviour
                     }
 
                     this.transform.LookAt(new Vector3(currentWaypoint.x, this.transform.position.y, currentWaypoint.z));
+                    Debug.DrawLine(this.transform.position, currentWaypoint,Color.red);
 
                     this.transform.position = Vector3.MoveTowards(transform.position, currentWaypoint, speed * Time.deltaTime);
-                    // Rb.MovePosition(currentWaypoint * speed * Time.deltaTime);
-                    //Debug.Log("이동");
+
                     thisPos = this.transform.position;
-                    thisPos.y = Grid.gridinstance.NodePoint(currentWaypoint, cellsize).YDepthLB + 0.6f;
+                    thisPos.y = Grid.gridinstance.NodePoint(currentWaypoint, cellsize).YDepthLB + 0f;
                     this.transform.position = thisPos;
                     yield return null;
                 }

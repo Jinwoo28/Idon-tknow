@@ -78,14 +78,7 @@ namespace Units.Player
         private void Awake()
         {
             Mcamera = Camera.main;
-        }
 
-        void Start()
-        {
-
-            PF = GetComponentInParent<PathFinding>();
-          
-            _mode = _Mode.STOP;
             baseStats = unitType.baseStats;
 
             attack = baseStats.attack;
@@ -96,8 +89,17 @@ namespace Units.Player
             atkRange = baseStats.atkRange;
             atkUpPlus = baseStats.attackplus;
             DropCount = baseStats.DrodCount;
-
             eyesight = baseStats.eyesight;
+        }
+
+        private void Start()
+        {       
+        PF = GetComponentInParent<PathFinding>();
+          
+            _mode = _Mode.STOP;
+           
+
+            
             statDisplay.SetStatatDisplayUnit(baseStats, true);
             RTS.Player.playerManager.instance.supply += baseStats.supply;
 
@@ -179,21 +181,24 @@ namespace Units.Player
             {
                 aggerTarget = rangeColliders[0].gameObject.transform;
                 atkUnit = aggerTarget.gameObject.GetComponent<Enemy.enemyUnit>();
-                search = true;
-                float distance_ = Vector3.Distance(this.transform.position, atkUnit.gameObject.transform.position);
+                Searching = true;
+                distance = Vector3.Distance(this.transform.position, atkUnit.gameObject.transform.position);
 
                 _mode = _Mode.Attack;
                 Debug.Log("À¯´ÖÅ½»ö");
-                if (distance_ <= baseStats.eyesight && distance > baseStats.airattackrange)
+
+                if (distance <= baseStats.eyesight && distance> baseStats.airattackrange)
                 {
+                    Debug.Log("ÂÑ¾Æ°¡±â");
                     MoveToAggroTarget();
-                    this.transform.LookAt(rangeColliders[0].gameObject.transform.position);
+                    this.transform.forward = rangeColliders[0].gameObject.transform.position;
                 }
 
                 else if (distance <= baseStats.airattackrange)
                 {
                     Attack();
-                    this.transform.LookAt(rangeColliders[0].gameObject.transform.position);
+                    this.transform.forward = rangeColliders[0].gameObject.transform.position;
+                   PF.StopFathPinding();
                 }
             }
 
@@ -259,7 +264,6 @@ namespace Units.Player
                         {
                             Debug.Log("°ø°Ý");
                             atkUnit.GetComponentInChildren<enemyStatDisplay>().TakeDamage(baseStats.attack);
-                            //aggroUnit.TakeDamage(baseStats.attack);
                             atkCooldown = baseStats.atkspeed;
                             isAtking = true;
 

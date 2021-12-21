@@ -5237,8 +5237,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ffb362b7bd6794caed9f00901e6ada, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camspeed: 20
-  scrolspeed: 20
+  camspeed: 0
+  scrolspeed: 0
   miny: 20
   maxy: 120
   BorderThickness: 10
