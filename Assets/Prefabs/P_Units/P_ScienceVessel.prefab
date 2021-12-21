@@ -199,6 +199,7 @@ MonoBehaviour:
   armor: 0
   atkRange: 0
   atkUpPlus: 0
+  airatkRange: 0
   DropCount: 0
   eyesight: 0
   isAtking: 0

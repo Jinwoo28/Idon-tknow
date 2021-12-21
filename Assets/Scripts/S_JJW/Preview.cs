@@ -135,7 +135,7 @@ public class Preview : MonoBehaviour
         if (other.gameObject.layer != layerGround && other.gameObject.layer != IGNORE_LAYER)
         {
             colliderList.Add(other);
-            //  Debug.Log("충돌");
+              Debug.Log("충돌");
         }
 
     }

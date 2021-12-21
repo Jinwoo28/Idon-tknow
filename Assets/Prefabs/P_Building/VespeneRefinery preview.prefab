@@ -10,7 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3564405945875760992}
   - component: {fileID: 6227869290235819770}
-  m_Layer: 3
+  - component: {fileID: 1719989842655414292}
+  - component: {fileID: 7280110708339662848}
+  m_Layer: 2
   m_Name: VespeneRefinery preview
   m_TagString: Player_Building
   m_Icon: {fileID: 0}
@@ -47,6 +49,35 @@ MonoBehaviour:
   layerGround: 14
   green: {fileID: 2100000, guid: cda046f87c230d84491a332d720c5caa, type: 2}
   red: {fileID: 2100000, guid: 9caa4379bdf41fd4eac3baf8e0cd8736, type: 2}
+--- !u!54 &1719989842655414292
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1158744962111238499}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &7280110708339662848
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1158744962111238499}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.4086224, y: 1, z: 1}
+  m_Center: {x: 0.20431119, y: 0, z: 0}
 --- !u!65 &6313888785543634033
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -150,7 +181,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: c593fe50cee992c47840967cce9815ff,
         type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c593fe50cee992c47840967cce9815ff,
         type: 3}

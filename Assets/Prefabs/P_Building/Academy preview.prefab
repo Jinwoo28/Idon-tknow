@@ -9,8 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 530772399222524395}
-  - component: {fileID: 1977609265475878980}
-  m_Layer: 7
+  - component: {fileID: 4544423811008455570}
+  - component: {fileID: 6445021831375993819}
+  - component: {fileID: 6139831251015941098}
+  m_Layer: 2
   m_Name: Academy preview
   m_TagString: Player_Building
   m_Icon: {fileID: 0}
@@ -32,7 +34,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1977609265475878980
+--- !u!114 &4544423811008455570
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -47,19 +49,35 @@ MonoBehaviour:
   layerGround: 14
   green: {fileID: 2100000, guid: cda046f87c230d84491a332d720c5caa, type: 2}
   red: {fileID: 2100000, guid: 9caa4379bdf41fd4eac3baf8e0cd8736, type: 2}
---- !u!65 &8359919405754640848
+--- !u!54 &6445021831375993819
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 530772399222524394}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
+--- !u!65 &6139831251015941098
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 836762976917845007}
+  m_GameObject: {fileID: 530772399222524394}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.028009932, y: 0.022613289, z: 0.016350651}
-  m_Center: {x: 0.00070723286, y: 0.00092457124, z: 0.008192982}
+  m_Size: {x: 1.2686312, y: 1, z: 1.4062324}
+  m_Center: {x: 0.13431492, y: 0, z: 0.05062464}
 --- !u!1001 &530772399427144030
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -150,7 +168,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: ee799352e1f9fc04cba15263ac3d2186,
         type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ee799352e1f9fc04cba15263ac3d2186,
         type: 3}
@@ -159,12 +177,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee799352e1f9fc04cba15263ac3d2186, type: 3}
---- !u!1 &836762976917845007 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: ee799352e1f9fc04cba15263ac3d2186,
-    type: 3}
-  m_PrefabInstance: {fileID: 530772399427144030}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &60543311153376949 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ee799352e1f9fc04cba15263ac3d2186,

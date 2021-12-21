@@ -32,6 +32,8 @@ namespace Building {
         //public Transform aggerTarget; //private
         private Units.Enemy.enemyUnit atkUnit;
 
+        private Units.Player.PlayerUnit atkPlayer;
+
 
         void Start()
         {
@@ -48,17 +50,24 @@ namespace Building {
             if (enemy == false)
             {
                 checkForEnemyTargets();
+                if (atkUnit == true)
+                {
+                    RangeCheck();
+                    turretAttack();
+                }
             }
             else
             {
                 checkForPlayerTargets();
-            }
+                if (atkPlayer == true)
+                {
+                    P_RangeCheck();
+                    P_turretAttack();
 
-            if (atkUnit == true)
-            {
-                RangeCheck();
-                turretAttack();
+                }
             }
+            
+           
 
             
 
@@ -73,16 +82,18 @@ namespace Building {
             {
                 for (int i = 0; i < rangeColliders.Length;i++)
                 {
-                    if (rangeColliders[i].gameObject.GetComponent<Units.Enemy.enemyUnit>().baseStats.air == true)
-                    {
+                   
+                        if (rangeColliders[i].gameObject.GetComponent<Units.Enemy.enemyUnit>().baseStats.air == true)
+                        {
 
 
-                        atkUnit = rangeColliders[i].gameObject.GetComponent<Units.Enemy.enemyUnit>();
+                            atkUnit = rangeColliders[i].gameObject.GetComponent<Units.Enemy.enemyUnit>();
 
 
-                        break;
+                            break;
 
-                    }
+                        }
+                    
                 }
             }
            
@@ -96,11 +107,11 @@ namespace Building {
             {
                 for (int i = 0; i < rangeColliders.Length; i++)
                 {
-                    if (rangeColliders[i].gameObject.GetComponent<Units.Enemy.enemyUnit>().baseStats.air == true)
+                    if (rangeColliders[i].gameObject.GetComponent<Units.Player.PlayerUnit>().baseStats.air == true)
                     {
 
 
-                        atkUnit = rangeColliders[i].gameObject.GetComponent<Units.Enemy.enemyUnit>();
+                        atkPlayer = rangeColliders[i].gameObject.GetComponent<Units.Player.PlayerUnit>();
 
 
                         break;
@@ -117,7 +128,7 @@ namespace Building {
             if (distance<=atkRange&&atkCooldown<=0)
             {
 
-                atkUnit.GetComponentInChildren<Units.UnitStatDisplay>().TakeDamage(attack);
+                atkUnit.GetComponentInChildren<Units.enemyStatDisplay>().TakeDamage(attack);
                 atkCooldown = atkSpeed;
                 Debug.Log("ÅÍ·¿ °ø°Ý");
             }
@@ -132,6 +143,28 @@ namespace Building {
 
             if (distance >= 15)
                 atkUnit = null;
+        }
+        private void P_turretAttack()
+        {
+
+            if (distance <= atkRange && atkCooldown <= 0)
+            {
+
+                atkPlayer.GetComponentInChildren<Units.UnitStatDisplay>().TakeDamage(attack);
+                atkCooldown = atkSpeed;
+                Debug.Log("ÅÍ·¿ °ø°Ý");
+            }
+
+
+        }
+
+        private void P_RangeCheck()
+        {
+            distance = Vector3.Distance(atkPlayer.transform.position, transform.position);
+
+
+            if (distance >= 15)
+                atkPlayer = null;
         }
 
     }
