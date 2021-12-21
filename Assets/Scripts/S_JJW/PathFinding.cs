@@ -480,4 +480,40 @@ public class PathFinding : MonoBehaviour
             isMove = false;
         }
     }
+    public void SetTarget2(Transform positon)
+    {
+            openSet.Clear();
+            closedSet.Clear();
+            SetStartPos();
+            UnitMode.isAtking = false;
+
+            //마우스 우클릭 시 새로운 길찾기를 위해 Open과 close를 리셋, 시작 위치도 현재 게임 오브젝트의 위치로 초기화
+
+           
+
+            
+                Vector3 TargetPos = positon.position;
+                //GameObject item = Instantiate(TargetPos, hit.point, Quaternion.identity);
+                //마우스에서 Ray를 쏴서 맞은 곳에 오브젝트를 생성
+                //목적지를 시각화 하기 위한 오브젝트
+
+                if (end != null) end = null;
+                //end값에 이미 어떤 값이 들어가있다면 초기화
+
+                end = Grid.gridinstance.NodePoint(TargetPos, cellsize);
+
+                SetTargetPos_ = TargetPos;
+                //end에 hitPos에 대응하는 NodeIndex를 대입
+           
+
+            if (end.walkable == true)
+            {
+                StopCoroutine("FindPath");
+                StopCoroutine("MoveUnit");
+                StartCoroutine("FindPath");
+            }
+            //start와 목적지가 정해졌으면 FindPath함수 실행
+       
+    }
+
 }

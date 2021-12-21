@@ -162,6 +162,7 @@ namespace Units.Player
             StopCoroutine("Work");
             Debug.Log("√Îº“");
             _Mode = mode.Normal;
+            //GetComponentInParent<PathFinding>().SetTarget2()
 
         }
         //private void tr
