@@ -222,7 +222,7 @@ namespace Units.Player
                     if (distance < atkRange )
                     {
                         Debug.Log("범위 도달");
-                        PF.StopPathFind();
+                        PF.StopFathPinding();
                         Attack();
                     }
                     else if (distance >= atkRange )
@@ -237,7 +237,7 @@ namespace Units.Player
                     if (distance < airatkRange)
                     {
                         Debug.Log("범위 도달2 ");
-                        PF.StopPathFind();
+                        PF.StopFathPinding();
                         Attack();
                     }
                     else if(distance >= airatkRange)

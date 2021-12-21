@@ -108,7 +108,9 @@ public class PathFinding : MonoBehaviour
             // hold나 stop일 때 이동 멈춤
             if (UnitModeNum == 3 || UnitModeNum == 1 || UnitMode.isAtking)
             {
-                StopPathFind();
+                //Debug.Log("공격중" + UnitMode.isAtking);
+                StopCoroutine("FindPath");
+                StopCoroutine("MoveUnit");
             }
 
             if (iUnit.isSelected()) //유닛이 선택이 되고
@@ -118,42 +120,42 @@ public class PathFinding : MonoBehaviour
                 {
                     if (!baseStats.air) //공중유닛인지 판단
                     {
-                        //if (unitType.name == "SCV")
-                        //{
-                        //    Debug.Log("SCV");
-                        //    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                        if (unitType.name == "SCV")
+                        {
+                            Debug.Log("SCV");
+                            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-                        //    //int layerMask = 1 << LayerMask.NameToLayer("Sea");
-                        //    // LayerMask layerMask = new LayerMask();
+                            //int layerMask = 1 << LayerMask.NameToLayer("Sea");
+                            // LayerMask layerMask = new LayerMask();
 
-                        //    if (Physics.Raycast(ray, out hit, Mathf.Infinity))
-                        //    {
-
-
-                        //        LayerMask layerHit = hit.transform.gameObject.layer;
-                        //        Debug.Log("레이어" + layerHit.value);
-
-                        //        switch (layerHit.value)
-                        //        {
+                            if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+                            {
 
 
+                                LayerMask layerHit = hit.transform.gameObject.layer;
+                                Debug.Log("레이어" + layerHit.value);
 
-                        //            case 25:
-                        //                Debug.Log("미네랄 클릭");
-                        //                gameObject.GetComponentInChildren<Units.Player.scv>().changMinerals();
-
-                        //                break;
-                        //            default:
-                        //                Debug.Log("다른레이어");
-
-                        //                gameObject.GetComponentInChildren<Units.Player.scv>().changNormals();
-                        //                break;
-
-                        //        }
+                                switch (layerHit.value)
+                                {
 
 
-                        //    }
-                        //}
+
+                                    case 25:
+                                        Debug.Log("미네랄 클릭");
+                                        gameObject.GetComponentInChildren<Units.Player.scv>().changMinerals();
+
+                                        break;
+                                    default:
+                                        Debug.Log("다른레이어");
+
+                                        gameObject.GetComponentInChildren<Units.Player.scv>().changNormals();
+                                        break;
+
+                                }
+
+
+                            }
+                        }
                         SetTarget();
                     }
                     else
@@ -167,6 +169,11 @@ public class PathFinding : MonoBehaviour
         //FloyingMoveUnit(Movedis);
     }
 
+    public void StopFathPinding()
+    {
+        StopCoroutine("FindPath");
+        StopCoroutine("MoveUnit");
+    }
     // ==========================================================
     //유닛의 현재 위치를 길찾기의 시작 위치로 설정
     public void SetStartPos()
@@ -221,31 +228,54 @@ public class PathFinding : MonoBehaviour
 
             if (end.walkable == true)
             {
-                StopPathFind();
+                StopCoroutine("FindPath");
+                StopCoroutine("MoveUnit");
                 StartCoroutine("FindPath");
             }
             //start와 목적지가 정해졌으면 FindPath함수 실행
         }
     }
-
-    public void StopPathFind()
+    public void SetTarget2(Transform ps)
     {
-        StopCoroutine("FindPath");
-        StopCoroutine("MoveUnit");
-        Debug.Log("멈춰!");
+        Debug.Log("돌아가");
+            openSet.Clear();
+            closedSet.Clear();
+            SetStartPos();
+            UnitMode.isAtking = false;
+
+            //마우스 우클릭 시 새로운 길찾기를 위해 Open과 close를 리셋, 시작 위치도 현재 게임 오브젝트의 위치로 초기화
+
+           
+           
+                Vector3 TargetPos = ps.position;
+                //GameObject item = Instantiate(TargetPos, hit.point, Quaternion.identity);
+                //마우스에서 Ray를 쏴서 맞은 곳에 오브젝트를 생성
+                //목적지를 시각화 하기 위한 오브젝트
+
+                if (end != null) end = null;
+        //end값에 이미 어떤 값이 들어가있다면 초기화
+
+        SetStartPos();
+
+                end = Grid.gridinstance.NodePoint(TargetPos, cellsize);
+
+                SetTargetPos_ = TargetPos;
+
+        StartCoroutine("FindPath");
+
+
+
+        //start와 목적지가 정해졌으면 FindPath함수 실행
+
     }
 
     public void ResetPathFind(Vector3 TargetPos)
     {
+        if (end != null) end = null;
+        end = Grid.gridinstance.NodePoint(TargetPos, cellsize);
         Debug.Log("길 다시 찾기");
         StopCoroutine("FindPath");
         StopCoroutine("MoveUnit");
-        if (end != null) end = null;
-        end = Grid.gridinstance.NodePoint(TargetPos, cellsize);
-        if(start != null)
-        {
-            start = CurrentPos();
-        }
         StartCoroutine("FindPath");
     }
 
@@ -260,7 +290,7 @@ public class PathFinding : MonoBehaviour
     {
 
         //길찾기 함수
-
+        Debug.Log("길찾기 시작");
         openSet.Add(start); //start를 첫 열린 목록에 추가
         if (openSet.Count > 0)
         {
@@ -292,6 +322,7 @@ public class PathFinding : MonoBehaviour
                     targetIndex = 0;
                     StopCoroutine("MoveUnit");
                     StartCoroutine("MoveUnit");
+                    Debug.Log("움직여라제발");
                
                     UO.ReSetUnitObstacle();
                     break;
@@ -436,12 +467,12 @@ public class PathFinding : MonoBehaviour
                     }
 
                     this.transform.LookAt(new Vector3(currentWaypoint.x, this.transform.position.y, currentWaypoint.z));
-                    Debug.DrawLine(this.transform.position, currentWaypoint,Color.red);
 
                     this.transform.position = Vector3.MoveTowards(transform.position, currentWaypoint, speed * Time.deltaTime);
-
+                    // Rb.MovePosition(currentWaypoint * speed * Time.deltaTime);
+                    //Debug.Log("이동");
                     thisPos = this.transform.position;
-                    thisPos.y = Grid.gridinstance.NodePoint(currentWaypoint, cellsize).YDepthLB + 0f;
+                    thisPos.y = Grid.gridinstance.NodePoint(currentWaypoint, cellsize).YDepthLB + 0.6f;
                     this.transform.position = thisPos;
                     yield return null;
                 }
@@ -487,40 +518,4 @@ public class PathFinding : MonoBehaviour
             isMove = false;
         }
     }
-    public void SetTarget2(Transform positon)
-    {
-            openSet.Clear();
-            closedSet.Clear();
-            SetStartPos();
-            UnitMode.isAtking = false;
-
-            //마우스 우클릭 시 새로운 길찾기를 위해 Open과 close를 리셋, 시작 위치도 현재 게임 오브젝트의 위치로 초기화
-
-           
-
-            
-                Vector3 TargetPos = positon.position;
-                //GameObject item = Instantiate(TargetPos, hit.point, Quaternion.identity);
-                //마우스에서 Ray를 쏴서 맞은 곳에 오브젝트를 생성
-                //목적지를 시각화 하기 위한 오브젝트
-
-                if (end != null) end = null;
-                //end값에 이미 어떤 값이 들어가있다면 초기화
-
-                end = Grid.gridinstance.NodePoint(TargetPos, cellsize);
-
-                SetTargetPos_ = TargetPos;
-                //end에 hitPos에 대응하는 NodeIndex를 대입
-           
-
-            if (end.walkable == true)
-            {
-                StopCoroutine("FindPath");
-                StopCoroutine("MoveUnit");
-                StartCoroutine("FindPath");
-            }
-            //start와 목적지가 정해졌으면 FindPath함수 실행
-       
-    }
-
 }

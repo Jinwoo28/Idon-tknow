@@ -15,6 +15,8 @@ namespace RTS.Player
 
         public List<GameObject> EnemyCheck = new List<GameObject>();
 
+        public List<Transform> center = new List<Transform>();
+
         private void Awake()
         {
             if (instance == null)
@@ -144,6 +146,27 @@ namespace RTS.Player
 
 
         }
+
+        public void WinCheck()
+        {
+            
+           if (EnemyCheck.Count == 0)
+            {
+
+                //½Â¸®¾À 
+
+
+            }
+
+
+        }
+        public void loseCheck()
+        {
+            if (BuildingCheck.Count == 0)
+            {
+                //ÆÐ¹è¾À
+
+            }
 
 
 

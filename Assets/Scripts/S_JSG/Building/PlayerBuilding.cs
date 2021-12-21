@@ -57,6 +57,7 @@ namespace Building.Player
                 {
                     playerManager.instance.b_commendcenter = true;
                 }
+                GameManager.instance.center.Add(gameObject.transform);
 
             }
             if (buildingType.name == ("CoverOPS"))

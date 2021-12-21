@@ -16,6 +16,8 @@ namespace Units.Player
 
         public GameObject HandMinerals;
 
+        public Transform center;
+
         public bool Min_Working;
         public bool MinFinish;
         public enum mode
@@ -36,6 +38,8 @@ namespace Units.Player
         HandMinerals.SetActive(false);
             Min_Working = false;
             MinFinish = false;
+
+           
         }
 
         // Update is called once per frame
@@ -151,10 +155,12 @@ namespace Units.Player
         }
         public void workFinish(Collider objt)
         {
+            center = RTS.Player.GameManager.instance.center[0].transform;
             objt.GetComponent<Minerals>().mineralattack();
             HandMinerals.SetActive(true);
             Min_Working = false;
             MinFinish = true;
+            GetComponentInParent<PathFinding>().SetTarget2(center);
 
         }
         public void canslework()
