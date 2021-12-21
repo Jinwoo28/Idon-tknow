@@ -26,3 +26,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: feca6fe5ce9ccb140906a8f9b0b5e718, type: 2}
   Behavor2:
   - {fileID: 11400000, guid: c2a0802dcaf19734b831a385ebaeeaed, type: 2}
+  BTNLIST_NUM: 1
