@@ -160,7 +160,7 @@ namespace Units.Player
             HandMinerals.SetActive(true);
             Min_Working = false;
             MinFinish = true;
-            GetComponentInParent<PathFinding>().SetTarget2(center);
+            
 
         }
         public void canslework()
@@ -195,5 +195,7 @@ namespace Units.Player
 
             return Min_Working;
         }
+
+        public void 
     }
 }
