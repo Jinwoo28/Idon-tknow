@@ -364,7 +364,84 @@ public class PathFinding : MonoBehaviour
 
         yield return null;
     }
+    public IEnumerator FindPath2()
+    {
 
+        //길찾기 함수
+        Debug.Log("길찾기 시작");
+        openSet.Add(start); //start를 첫 열린 목록에 추가
+        if (openSet.Count > 0)
+        {
+            while (openSet.Count > 0)   //열린 목록에 인자가 없을 때 까지 반복
+            {
+                Node currentNode = openSet[0]; // CurrentNode은 처음 노드부터_ 유닛의 위치
+
+                //Open에 fCost가 가장 작은 노드를 찾기
+                for (int i = 1; i < openSet.Count; i++)
+                { //0은 시작 노드이기 때문에 i는 1부터 시작
+                    if (openSet[i].fCost < currentNode.fCost || openSet[i].fCost == currentNode.fCost && openSet[i].hCost < currentNode.hCost)
+                    {
+                        currentNode = openSet[i];
+                    }
+                }
+
+                //마우스 위치가 이동 가능한 지역인지 확인
+                //이동 불가능하다면 선택 불가
+                //이동 가능한 지역이면 예외처리
+
+                openSet.Remove(currentNode);
+                closedSet.Add(currentNode);
+
+                // 현재 노드가 목적지면 while문 탈출
+                if (currentNode == end)
+                {
+                    //pathSuccess = true;
+                    success = true;
+                    targetIndex = 0;
+                    StopCoroutine("MoveUnit");
+                    StartCoroutine("MoveUnit");
+                    Debug.Log("움직여라제발");
+
+                    UO.ReSetUnitObstacle();
+                    break;
+                }
+
+                //이웃 노드를 검색
+                foreach (Node neighbour in Grid.gridinstance.GetNeighbours(currentNode))
+                {
+                    //이동불가 노드 이거나 이미 검색한 노드는 제외
+                    if (!neighbour.walkable || closedSet.Contains(neighbour))
+                    {
+                        continue;
+                    }
+
+
+                    int newMovementCostToNeighbour = currentNode.gCost + GetDistance(currentNode, neighbour);
+                    // 현재 노드의 gCost와 현재 노드와 이웃 노드의 거리를 계산
+
+                    if (newMovementCostToNeighbour < neighbour.gCost || !openSet.Contains(neighbour))
+                    {
+                        //위에서 계산한 값보다 이웃 노드의 gCost가 크거나 
+                        neighbour.gCost = newMovementCostToNeighbour;
+
+                        neighbour.hCost = GetDistance(neighbour, end);
+
+                        neighbour.parent = currentNode;
+
+                        if (!openSet.Contains(neighbour))
+                        {
+                            openSet.Add(neighbour);
+                        }
+                    }
+                }
+            }
+        }
+        //길을 찾지 못했을 때 예외처리 필요
+        //현재 바다는 이미 walkable이 false이기 때문에 선택되지 않음
+        //추후 예외처리가 되면 바꿀 예정
+
+        yield return null;
+    }
     //==============================================================================
 
     //Vector3[] RetracePath(Node startNode, Node endNode)
