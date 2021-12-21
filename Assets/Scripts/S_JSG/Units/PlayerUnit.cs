@@ -17,7 +17,7 @@ namespace Units.Player
             Attack
         }
 
-        
+
 
         public UnitStatDisplay statDisplay;
 
@@ -63,7 +63,7 @@ namespace Units.Player
         public float eyesight;
 
 
-   
+
 
 
         private bool AutoAtk = false;   //자동공격이 가능한지 여부
@@ -97,7 +97,7 @@ namespace Units.Player
 
             eyesight = baseStats.eyesight;
         }
-          private  void Start() { 
+        private void Start() {
             statDisplay.SetStatatDisplayUnit(baseStats, true);
             RTS.Player.playerManager.instance.supply += baseStats.supply;
 
@@ -121,9 +121,9 @@ namespace Units.Player
             Debug.Log(_mode);
             Debug.Log("공격 여부 / " + isAtking);
 
-            if(!isAtking) {
-                if(particle!=null)
-                particle.Stop();
+            if (!isAtking) {
+                if (particle != null)
+                    particle.Stop();
             }
         }
 
@@ -154,7 +154,7 @@ namespace Units.Player
             _mode = UM;
         }
 
-        
+
 
         public void SetDestinatin(Vector3 dest) //목표지점
         {
@@ -178,40 +178,87 @@ namespace Units.Player
 
             if (rangeColliders.Length > 0)
             {
-                aggerTarget = rangeColliders[0].gameObject.transform;
-                atkUnit = aggerTarget.gameObject.GetComponent<Enemy.enemyUnit>();
-                Searching = true;
-                distance = Vector3.Distance(this.transform.position, atkUnit.gameObject.transform.position);
-
-                _mode = _Mode.Attack;
-                Debug.Log("유닛탐색");
-
-                if (distance <= baseStats.eyesight)
+                for (int i = 0; rangeColliders[i]; i++)
                 {
-                    if (distance < atkRange || distance < airatkRange)
+                    if (rangeColliders[i].gameObject.GetComponent<Enemy.enemyUnit>().baseStats.ground == true)
+                    {
+                        if (atkRange > 0)
+                        {
+                            aggerTarget = rangeColliders[i].gameObject.transform;
+                            atkUnit = aggerTarget.gameObject.GetComponent<Enemy.enemyUnit>();
+                            Searching = true;
+                            distance = Vector3.Distance(this.transform.position, atkUnit.gameObject.transform.position);
+                            break;
+                        }
+                        
+
+
+                    }
+                    else
+                    {
+                        if (airatkRange > 0)
+                        {
+                            aggerTarget = rangeColliders[i].gameObject.transform;
+                            atkUnit = aggerTarget.gameObject.GetComponent<Enemy.enemyUnit>();
+                            Searching = true;
+                            distance = Vector3.Distance(this.transform.position, atkUnit.gameObject.transform.position);
+                            break;
+
+                        }
+                    }
+                    
+                }
+                
+                Debug.Log("유닛탐색");
+            }
+            }
+            public void targetrange() {
+
+            _mode = _Mode.Attack;
+
+
+            if (atkUnit)
+            {
+                if (atkUnit.baseStats.ground == true)
+                {
+                    if (distance < atkRange )
                     {
                         Debug.Log("범위 도달");
-                        return;
+                        Attack();
                     }
-                    else if (distance>=atkRange||distance>=airatkRange)
+                    else if (distance >= atkRange )
                     {
                         Debug.Log("쫓아가기");
                         MoveToAggroTarget();
                         this.transform.forward = rangeColliders[0].gameObject.transform.position;
                     }
+                }
+                else { 
 
-
+                    if (distance < airatkRange)
+                    {
+                        Debug.Log("범위 도달2 ");
+                        Attack();
+                    }
+                    else if(distance >= airatkRange)
+                    {
+                        MoveToAggroTarget();
+                        this.transform.forward = rangeColliders[0].gameObject.transform.position;
+                    }
                 }
 
-                if (distance <= baseStats.airattackrange)
-                {
-                    Attack();
-                    this.transform.forward = rangeColliders[0].gameObject.transform.position;
-                   PF.StopFathPinding();
-                }
+
+                //if (distance <= baseStats.airattackrange)
+                //{
+                //    Attack();
+                //    this.transform.forward = rangeColliders[0].gameObject.transform.position;
+                //    PF.StopFathPinding();
+                //}
+            }
             }
 
-        }
+        
+    
 
 
 
@@ -232,7 +279,7 @@ namespace Units.Player
             {
                 if (atkUnit.baseStats.ground == false)
                 {
-                    if (baseStats.airattack == 0)
+                    if (baseStats.airattack <= 0||baseStats.airattackrange<=0)
                     {
                         return;
                     }
@@ -263,7 +310,7 @@ namespace Units.Player
                 }
                 else
                 {
-                    if (baseStats.attack == 0)
+                    if (baseStats.attack <= 0||baseStats.atkRange<=0)
                     {
                         return;
                     }
