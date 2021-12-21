@@ -49,7 +49,7 @@ namespace RTS.Player
 
             if (!isActivatePreview)
             {
-                if (Input.GetKeyDown(KeyCode.R)) SlotClick(0);
+                if (Input.GetKeyDown(KeyCode.R)) SlotClick(0,400);
                
             }
 
@@ -94,15 +94,15 @@ namespace RTS.Player
         }
 
 
-        public void SlotClick(int _SlotNumber)
+        public void SlotClick(int _SlotNumber,int Minerals)
         {
             
             
                 isActivatePreview = false;
                 InsPrefab = craft[_SlotNumber].BuildCraft;
-            Debug.Log("¹Ì³×¶ö");
-            Debug.Log("¹Ì³×¶ö"+craft[_SlotNumber].BuildCraft.gameObject.GetComponent<Building.Player.PlayerBuilding>().baseStats.mineral);
-            if (craft[_SlotNumber].BuildCraft.GetComponent<Building.Player.PlayerBuilding>().baseStats.mineral > playerManager.instance.Minerals)
+          
+      
+            if (Minerals > playerManager.instance.Minerals)
             {
 
                 Debug.LogError("¹Ì³×¶ö ºÎÁ·");
@@ -110,7 +110,7 @@ namespace RTS.Player
             }
             else
             {
-                playerManager.instance.Minerals -= craft[_SlotNumber].BuildCraft.GetComponent<Building.Player.PlayerBuilding>().baseStats.mineral;
+                playerManager.instance.Minerals -= Minerals;
                 PreviewPrefab = Instantiate(craft[_SlotNumber].previewCraft);
                 Debug.Log("ÇÁ¸®ºä : " + isActivatePreview);
                 isActivatePreview = true;

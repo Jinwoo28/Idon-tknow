@@ -227,7 +227,7 @@ namespace Units.Player
 
                         if (atkCooldown <= 0&&baseStats.airattackrange> distance)
                         {
-                            atkUnit.GetComponentInChildren<UnitStatDisplay>().TakeDamage(baseStats.airattack);
+                            atkUnit.GetComponentInChildren<enemyStatDisplay>().TakeDamage(baseStats.airattack);
                             //aggroUnit.TakeDamage(baseStats.attack);
                             atkCooldown = baseStats.atkspeed;
                             isAtking = true;
@@ -258,7 +258,7 @@ namespace Units.Player
                         if (atkCooldown <= 0&&atkRange>distance)
                         {
                             Debug.Log("АјАн");
-                            atkUnit.GetComponentInChildren<UnitStatDisplay>().TakeDamage(baseStats.attack);
+                            atkUnit.GetComponentInChildren<enemyStatDisplay>().TakeDamage(baseStats.attack);
                             //aggroUnit.TakeDamage(baseStats.attack);
                             atkCooldown = baseStats.atkspeed;
                             isAtking = true;

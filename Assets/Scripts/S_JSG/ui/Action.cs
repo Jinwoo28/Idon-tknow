@@ -9,7 +9,7 @@ namespace UI.HUD
     {
         public int slotnum;
 
-        
+        public int minerals;
         public void OnClick()
         {
              //ActionFrame.instance.StartSpawnTimer(name);
@@ -19,7 +19,7 @@ namespace UI.HUD
         {
 
 
-            RTS.Player.BuildManager.instance.SlotClick(slotnum);
+            RTS.Player.BuildManager.instance.SlotClick(slotnum, minerals);
         }
       
 

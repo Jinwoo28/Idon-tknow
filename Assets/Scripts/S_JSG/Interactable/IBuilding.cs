@@ -20,6 +20,8 @@ namespace Interactables
         //public List<float> SpawnQueue = new List<float>();
         //public List<GameObject> spawnOrder = new List<GameObject>();
 
+        public bool BuildingCheck = false;
+        
 
         public float MaxMarkerDistance = 10f;
         
@@ -32,6 +34,7 @@ namespace Interactables
         {
             UI.HUD.ActionFrame.instance.SetActionButtons(actions); //버튼 활성화
             UI.HUD.ImageSet.instance.setImage(BuildingImage);
+            BuildingCheck = true;
             base.OnInteractEnter();
             //add stuff
         }
@@ -39,6 +42,7 @@ namespace Interactables
         {
             UI.HUD.ActionFrame.instance.ClearActions();
             UI.HUD.ImageSet.instance.clearImage();
+            BuildingCheck = false;
             base.OnInteractExit();
         }
 
@@ -150,6 +154,12 @@ namespace Interactables
         //    }
 
         //}
+        public bool BuildingClickCheck()
+        {
+
+            return BuildingCheck;
+        }
+        
 
         }
 }
