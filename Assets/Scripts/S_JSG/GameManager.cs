@@ -28,73 +28,74 @@ namespace RTS.Player
 
         public void buildingnamecheck(string objectname)
         {
-            bool checkname=false;
+            bool checkname = false;
 
-            for (int i = 0; i < BuildingCheck.Count; i++) {
+            for (int i = 0; i < BuildingCheck.Count; i++)
+            {
 
-                
-                
+
+
                 if (objectname == BuildingCheck[i].GetComponent<Building.Player.PlayerBuilding>().buildingType.name)
                 {
                     checkname = true;
                     Debug.Log("Á¸ÀçÇÔ");
-                   break;
+                    break;
                 }
 
 
-                        }
+            }
 
             if (checkname == false)
             {
                 if (objectname == ("Barracks"))
                 {
-                    
-                    
-                        playerManager.instance.b_barracks = false;
-                    
+
+
+                    playerManager.instance.b_barracks = false;
+
                 }
                 if (objectname == ("Academy"))
                 {
-                   
-               
-                        playerManager.instance.b_academy = false;
-                  
+
+
+                    playerManager.instance.b_academy = false;
+
 
                 }
                 if (objectname == ("Armory"))
                 {
-                   
-                   
-                        playerManager.instance.b_armory = false;
-                    
+
+
+                    playerManager.instance.b_armory = false;
+
                 }
                 if (objectname == ("CommandCenter"))
                 {
-                    
-                    
-                        playerManager.instance.b_commendcenter = false;
-                    
+
+
+                    playerManager.instance.b_commendcenter = false;
+
 
                 }
                 if (objectname == ("CoverOPS"))
                 {
-                    
-                   
-                        playerManager.instance.b_coverops = false;
-                    
+
+
+                    playerManager.instance.b_coverops = false;
+
                 }
                 if (objectname == ("EnigneerungBay"))
                 {
-                   
-                  
-                        playerManager.instance.b_engineeringbay = false;
-                   
+
+
+                    playerManager.instance.b_engineeringbay = false;
+
                 }
                 if (objectname == ("Factory"))
                 {
-                    
-                        playerManager.instance.b_factory = false;
-                   
+
+                    playerManager.instance.b_factory = false;
+
                 }
                 if (objectname == ("FactoryAddOn"))
                 {
@@ -105,41 +106,41 @@ namespace RTS.Player
                 }
                 if (objectname == ("NuclearAddOn"))
                 {
-                   
-                  
-                        playerManager.instance.b_nuclearaddon = false;
-                    
+
+
+                    playerManager.instance.b_nuclearaddon = false;
+
                 }
                 if (objectname == ("PhysicsLab"))
                 {
-                    
-                        playerManager.instance.b_physicslab = false;
-                    
+
+                    playerManager.instance.b_physicslab = false;
+
                 }
                 if (objectname == ("ScanAddOn"))
                 {
-                  
-                    
-                        playerManager.instance.b_scanaddon = false;
-                    
+
+
+                    playerManager.instance.b_scanaddon = false;
+
                 }
                 if (objectname == ("ScinceFacility"))
                 {
-                  
-                        playerManager.instance.b_scincefacility = false;
-                   
+
+                    playerManager.instance.b_scincefacility = false;
+
                 }
                 if (objectname == ("Starport"))
                 {
-                   
-                        playerManager.instance.b_starport = false;
-                   
+
+                    playerManager.instance.b_starport = false;
+
                 }
                 if (objectname == ("Starportaddon"))
                 {
-                    
-                        playerManager.instance.b_starportaddon = false;
-                    
+
+                    playerManager.instance.b_starportaddon = false;
+
                 }
 
             }
@@ -149,8 +150,8 @@ namespace RTS.Player
 
         public void WinCheck()
         {
-            
-           if (EnemyCheck.Count == 0)
+
+            if (EnemyCheck.Count == 0)
             {
 
                 //½Â¸®¾À 
@@ -171,5 +172,7 @@ namespace RTS.Player
 
 
 
+        }
     }
 }
+

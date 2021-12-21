@@ -9,7 +9,7 @@ namespace Units.Player
         public GameObject _scv_;
 
         public Collider[] rangeCollider;
-        
+
         public LayerMask Minlayer;
 
         public GameObject MineralsTarget;
@@ -33,13 +33,13 @@ namespace Units.Player
 
         void Start()
         {
-            
+
             _Mode = mode.Normal;
-        HandMinerals.SetActive(false);
+            HandMinerals.SetActive(false);
             Min_Working = false;
             MinFinish = false;
 
-           
+
         }
 
         // Update is called once per frame
@@ -83,9 +83,9 @@ namespace Units.Player
 
         }
 
-       public void mineralscheck()
+        public void mineralscheck()
         {
-           
+
             rangeCollider = Physics.OverlapSphere(transform.position, _scv_.GetComponent<PlayerUnit>().baseStats.eyesight, 25);
 
             for (int i = 0; i < rangeCollider.Length; i++)
@@ -95,7 +95,7 @@ namespace Units.Player
                     MineralsTarget = rangeCollider[i].gameObject;
 
                     break;
-                    
+
 
                 }
 
@@ -107,13 +107,13 @@ namespace Units.Player
         public void mineralattack()
         {
 
-            
-            
+
+
         }
         private void OnTriggerEnter(Collider other)
         {
 
-            
+
             if (other.gameObject.layer == 25)
             {
 
@@ -125,7 +125,8 @@ namespace Units.Player
 
 
             }
-            if (other.gameObject.layer == 3) {
+            if (other.gameObject.layer == 3)
+            {
                 Debug.Log(" °Ç¹° ÅÍÄ¡");
                 if (other.gameObject.gameObject.GetComponent<Building.Player.PlayerBuilding>().buildingType.name == "CommandCenter")
                 {
@@ -139,7 +140,7 @@ namespace Units.Player
 
 
                 }
-                    }
+            }
 
         }
 
@@ -160,7 +161,7 @@ namespace Units.Player
             HandMinerals.SetActive(true);
             Min_Working = false;
             MinFinish = true;
-            
+
 
         }
         public void canslework()
@@ -173,7 +174,7 @@ namespace Units.Player
         }
         //private void tr
         //{
-            
+
         //    if (collision.gameObject.layer == 25)
         //    {
         //        Debug.Log("¹Ì³×¶ö ºÎµúÈû" + collision.gameObject.layer);
@@ -196,6 +197,6 @@ namespace Units.Player
             return Min_Working;
         }
 
-        public void 
-    }
+    } 
+    
 }
