@@ -53,7 +53,7 @@ MonoBehaviour:
     ground_type: 0
     air_type: 0
     unit_size: 0
-  statDisplay: {fileID: 7780381814388648347}
+  statDisplay: {fileID: 7227072960855925466}
   rangeColliders: []
   aggerTarget: {fileID: 0}
   distance: 0
@@ -148,6 +148,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fff2aab2767b7fc4caf227bf6cef53a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7227072960855925466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8905807435932162067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f821951ac37a43448a656e8cf2a8aeca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 0
+  armor: 0
+  currentHealth: 0
+  maxmp: 0
+  mp: 0
+  healthBarAmount: {fileID: 8507999041841686938}
 --- !u!1001 &1238442435693315402
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -505,18 +523,25 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6067417992144604633, guid: 4112df0717e1b1040bc4600f7025c7f8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4112df0717e1b1040bc4600f7025c7f8, type: 3}
---- !u!114 &7780381814388648347 stripped
+--- !u!1 &8905807435932162067 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4926230045549689937, guid: 4112df0717e1b1040bc4600f7025c7f8,
+    type: 3}
+  m_PrefabInstance: {fileID: 4596684891027711042}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8507999041841686938 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6067417992144604633, guid: 4112df0717e1b1040bc4600f7025c7f8,
+  m_CorrespondingSourceObject: {fileID: 5321223415112846808, guid: 4112df0717e1b1040bc4600f7025c7f8,
     type: 3}
   m_PrefabInstance: {fileID: 4596684891027711042}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a8e2ff54cea3cb4b9d2f1d8bced76bf, type: 3}
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &6890754031393540486

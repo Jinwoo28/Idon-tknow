@@ -11,7 +11,7 @@ namespace Units.Enemy
 
         public UnitStatType.Base baseStats;
 
-        public UnitStatDisplay statDisplay;
+        public enemyStatDisplay statDisplay;
 
         public Collider[] rangeColliders;//private
 
