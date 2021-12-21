@@ -108,7 +108,7 @@ public class PathFinding : MonoBehaviour
             // hold나 stop일 때 이동 멈춤
             if (UnitModeNum == 3 || UnitModeNum == 1 || UnitMode.isAtking)
             {
-                Debug.Log("공격중" + UnitMode.isAtking);
+                //Debug.Log("공격중" + UnitMode.isAtking);
                 StopCoroutine("FindPath");
                 StopCoroutine("MoveUnit");
             }

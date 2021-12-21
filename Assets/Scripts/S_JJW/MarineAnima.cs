@@ -31,7 +31,7 @@ public class MarineAnima : MonoBehaviour
             PA.SetInteger("Move", 1);
 
         }
-        else if (unitmode == 5 && PU.isAtking)
+        else if (PU.isAtking)
         {
             PA.SetInteger("Move", 2);
         }

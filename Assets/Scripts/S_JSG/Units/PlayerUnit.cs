@@ -57,7 +57,7 @@ namespace Units.Player
         public float armor;
         public float atkRange;
         public float atkUpPlus;
-
+        public float airatkRange;
         public int DropCount;
 
         public float eyesight;
@@ -79,6 +79,10 @@ namespace Units.Player
         {
             Mcamera = Camera.main;
 
+
+            PF = GetComponentInParent<PathFinding>();
+
+            _mode = _Mode.STOP;
             baseStats = unitType.baseStats;
 
             attack = baseStats.attack;
@@ -89,17 +93,11 @@ namespace Units.Player
             atkRange = baseStats.atkRange;
             atkUpPlus = baseStats.attackplus;
             DropCount = baseStats.DrodCount;
+            airatkRange = baseStats.airattackrange;
+
             eyesight = baseStats.eyesight;
         }
-
-        private void Start()
-        {       
-        PF = GetComponentInParent<PathFinding>();
-          
-            _mode = _Mode.STOP;
-           
-
-            
+          private  void Start() { 
             statDisplay.SetStatatDisplayUnit(baseStats, true);
             RTS.Player.playerManager.instance.supply += baseStats.supply;
 
@@ -121,6 +119,7 @@ namespace Units.Player
             ShortKey();
 
             Debug.Log(_mode);
+            Debug.Log("°ø°Ý ¿©ºÎ / " + isAtking);
 
             if(!isAtking) {
                 if(particle!=null)
@@ -187,14 +186,24 @@ namespace Units.Player
                 _mode = _Mode.Attack;
                 Debug.Log("À¯´ÖÅ½»ö");
 
-                if (distance <= baseStats.eyesight && distance> baseStats.airattackrange)
+                if (distance <= baseStats.eyesight)
                 {
-                    Debug.Log("ÂÑ¾Æ°¡±â");
-                    MoveToAggroTarget();
-                    this.transform.forward = rangeColliders[0].gameObject.transform.position;
+                    if (distance < atkRange || distance < airatkRange)
+                    {
+                        Debug.Log("¹üÀ§ µµ´Þ");
+                        return;
+                    }
+                    else if (distance>=atkRange||distance>=airatkRange)
+                    {
+                        Debug.Log("ÂÑ¾Æ°¡±â");
+                        MoveToAggroTarget();
+                        this.transform.forward = rangeColliders[0].gameObject.transform.position;
+                    }
+
+
                 }
 
-                else if (distance <= baseStats.airattackrange)
+                if (distance <= baseStats.airattackrange)
                 {
                     Attack();
                     this.transform.forward = rangeColliders[0].gameObject.transform.position;
