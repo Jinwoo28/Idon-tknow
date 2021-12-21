@@ -199,6 +199,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slotnum: 7
+  minerals: 100
 --- !u!1 &5455301051181810366
 GameObject:
   m_ObjectHideFlags: 0

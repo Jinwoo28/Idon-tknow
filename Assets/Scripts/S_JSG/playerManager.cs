@@ -87,6 +87,10 @@ namespace RTS.Player
         void Update()
         {
             InputHandler.instance.HandleUnitMovement();
+            if (Input.GetKeyDown(KeyCode.LeftControl))
+            {
+                mineralsplus();
+            }
         }
         public void SetBasicStats(Transform type) //가져온 정보를 유닛에 세팅
         {
@@ -123,7 +127,11 @@ namespace RTS.Player
             }
         }
 
-       
+       public void mineralsplus()
+        {
+
+            Minerals += 1000;
+        }
      
 
        

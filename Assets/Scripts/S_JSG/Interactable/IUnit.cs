@@ -14,9 +14,13 @@ namespace Interactables
        
         public override void OnInteractEnter()
         {
-            UI.HUD.ActionFrame.instance.SetActionButtons(actions); //버튼 활성화
-            UI.HUD.ImageSet.instance.setImage(Unitimage);
-            base.OnInteractEnter();
+            if (InputManager.InputHandler.instance.selectedUnits.Count == 1)
+            {
+                UI.HUD.ActionFrame.instance.SetActionButtons(actions); //버튼 활성화
+                UI.HUD.ImageSet.instance.setImage(Unitimage);
+            }
+                base.OnInteractEnter();
+            
         }
         public override void OnInteractExit()
         {

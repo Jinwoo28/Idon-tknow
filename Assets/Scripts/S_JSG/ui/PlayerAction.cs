@@ -27,5 +27,7 @@ namespace UI.HUD
         [Space(5)]
         [Header("Skill")] // "Button2"
         public List<Behavior.Behavior_BTN> Behavor2 = new List<Behavior.Behavior_BTN>();
+
+        public int BTNLIST_NUM;
     }
 }

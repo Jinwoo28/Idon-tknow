@@ -35,6 +35,8 @@ namespace RTS.Player
 
         private Vector3 buildPos;
 
+        public bool B_buildingcheck=false;
+        public bool A_buildingcheck = false;
 
         private void Awake()
         {
@@ -44,12 +46,36 @@ namespace RTS.Player
             }
 
         }
+        private void Start()
+        {
+            
+        }
         private void Update()
         {
 
             if (!isActivatePreview)
             {
-                if (Input.GetKeyDown(KeyCode.R)) SlotClick(0,400);
+                if (B_buildingcheck == true)
+                {
+                    if (Input.GetKeyDown(KeyCode.C)) SlotClick(0, 400);
+                    if (Input.GetKeyDown(KeyCode.S)) SlotClick(1, 100);
+                    if (Input.GetKeyDown(KeyCode.R)) SlotClick(2, 100);
+                    if (Input.GetKeyDown(KeyCode.B)) SlotClick(3, 150);
+                    if (Input.GetKeyDown(KeyCode.E)) SlotClick(4, 125);
+                    if (Input.GetKeyDown(KeyCode.T)) SlotClick(5, 75);
+                    if (Input.GetKeyDown(KeyCode.A)) SlotClick(6, 150);
+                    if (Input.GetKeyDown(KeyCode.U)) SlotClick(7, 100);
+                }
+                    if (A_buildingcheck == true)
+                    {
+                        if (Input.GetKeyDown(KeyCode.F)) SlotClick(8, 200);
+                        if (Input.GetKeyDown(KeyCode.S)) SlotClick(9, 150);
+                        if (Input.GetKeyDown(KeyCode.I)) SlotClick(10, 100);
+                        if (Input.GetKeyDown(KeyCode.A)) SlotClick(11, 100);
+                    }
+
+
+                
                
             }
 
