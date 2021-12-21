@@ -108,9 +108,7 @@ public class PathFinding : MonoBehaviour
             // hold나 stop일 때 이동 멈춤
             if (UnitModeNum == 3 || UnitModeNum == 1 || UnitMode.isAtking)
             {
-                //Debug.Log("공격중" + UnitMode.isAtking);
-                StopCoroutine("FindPath");
-                StopCoroutine("MoveUnit");
+                StopPathFind();
             }
 
             if (iUnit.isSelected()) //유닛이 선택이 되고
@@ -120,42 +118,42 @@ public class PathFinding : MonoBehaviour
                 {
                     if (!baseStats.air) //공중유닛인지 판단
                     {
-                        if (unitType.name == "SCV")
-                        {
-                            Debug.Log("SCV");
-                            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                        //if (unitType.name == "SCV")
+                        //{
+                        //    Debug.Log("SCV");
+                        //    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-                            //int layerMask = 1 << LayerMask.NameToLayer("Sea");
-                            // LayerMask layerMask = new LayerMask();
+                        //    //int layerMask = 1 << LayerMask.NameToLayer("Sea");
+                        //    // LayerMask layerMask = new LayerMask();
 
-                            if (Physics.Raycast(ray, out hit, Mathf.Infinity))
-                            {
-
-
-                                LayerMask layerHit = hit.transform.gameObject.layer;
-                                Debug.Log("레이어" + layerHit.value);
-
-                                switch (layerHit.value)
-                                {
+                        //    if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+                        //    {
 
 
+                        //        LayerMask layerHit = hit.transform.gameObject.layer;
+                        //        Debug.Log("레이어" + layerHit.value);
 
-                                    case 25:
-                                        Debug.Log("미네랄 클릭");
-                                        gameObject.GetComponentInChildren<Units.Player.scv>().changMinerals();
-
-                                        break;
-                                    default:
-                                        Debug.Log("다른레이어");
-
-                                        gameObject.GetComponentInChildren<Units.Player.scv>().changNormals();
-                                        break;
-
-                                }
+                        //        switch (layerHit.value)
+                        //        {
 
 
-                            }
-                        }
+
+                        //            case 25:
+                        //                Debug.Log("미네랄 클릭");
+                        //                gameObject.GetComponentInChildren<Units.Player.scv>().changMinerals();
+
+                        //                break;
+                        //            default:
+                        //                Debug.Log("다른레이어");
+
+                        //                gameObject.GetComponentInChildren<Units.Player.scv>().changNormals();
+                        //                break;
+
+                        //        }
+
+
+                        //    }
+                        //}
                         SetTarget();
                     }
                     else
@@ -167,12 +165,6 @@ public class PathFinding : MonoBehaviour
             }
         }
         //FloyingMoveUnit(Movedis);
-    }
-
-    public void StopFathPinding()
-    {
-        StopCoroutine("FindPath");
-        StopCoroutine("MoveUnit");
     }
 
     // ==========================================================
@@ -229,21 +221,31 @@ public class PathFinding : MonoBehaviour
 
             if (end.walkable == true)
             {
-                StopCoroutine("FindPath");
-                StopCoroutine("MoveUnit");
+                StopPathFind();
                 StartCoroutine("FindPath");
             }
             //start와 목적지가 정해졌으면 FindPath함수 실행
         }
     }
 
+    public void StopPathFind()
+    {
+        StopCoroutine("FindPath");
+        StopCoroutine("MoveUnit");
+        Debug.Log("멈춰!");
+    }
+
     public void ResetPathFind(Vector3 TargetPos)
     {
-        if (end != null) end = null;
-        end = Grid.gridinstance.NodePoint(TargetPos, cellsize);
         Debug.Log("길 다시 찾기");
         StopCoroutine("FindPath");
         StopCoroutine("MoveUnit");
+        if (end != null) end = null;
+        end = Grid.gridinstance.NodePoint(TargetPos, cellsize);
+        if(start != null)
+        {
+            start = CurrentPos();
+        }
         StartCoroutine("FindPath");
     }
 

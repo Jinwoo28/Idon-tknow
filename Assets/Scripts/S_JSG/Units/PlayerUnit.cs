@@ -68,7 +68,7 @@ namespace Units.Player
 
         private bool AutoAtk = false;   //자동공격이 가능한지 여부
         public bool isAtking = false;   //현재 공격중인지 여부
-        private bool search = false;
+        private bool search = true;
 
         Interactables.IUnit iUnit = null;
 
@@ -109,11 +109,12 @@ namespace Units.Player
             if (atkCooldown >= -1)
                 atkCooldown -= Time.deltaTime;
 
-            AutoAtkSetting();
+                AutoAtkSetting();
+                checkForEnemyTargets();
 
             if (_mode != _Mode.MOVE && _mode != _Mode.HOLD)
             {
-                checkForEnemyTargets();
+                targetrange();
             }
 
             ShortKey();
@@ -163,74 +164,72 @@ namespace Units.Player
 
         private void checkForEnemyTargets() //범위안 타겟찾음
         {
-
-            rangeColliders = Physics.OverlapSphere(transform.position, baseStats.eyesight, UnitHandler.instance.eUnitLayer);
-
-            //for (int i = 0; i < rangeColliders.Length;)
-            //{
-            //    aggerTarget = rangeColliders[i].gameObject.transform;
-            //    atkUnit = aggerTarget.gameObject.GetComponent<Enemy.enemyUnit>();
-
-            //    //hasAggero = true;
-            //    //Searching = true;
-            //    break;
-            //}
-
-            if (rangeColliders.Length > 0)
+            if (atkUnit == null)
             {
-                for (int i = 0; rangeColliders[i]; i++)
+                rangeColliders = Physics.OverlapSphere(transform.position, baseStats.eyesight, UnitHandler.instance.eUnitLayer);
+
+
+
+                if (rangeColliders.Length > 0)
                 {
-                    if (rangeColliders[i].gameObject.GetComponent<Enemy.enemyUnit>().baseStats.ground == true)
+                    for (int i = 0; rangeColliders[i]; i++)
                     {
-                        if (atkRange > 0)
+                        if (rangeColliders[i].gameObject.GetComponent<Enemy.enemyUnit>().baseStats.ground == true)
                         {
-                            aggerTarget = rangeColliders[i].gameObject.transform;
-                            atkUnit = aggerTarget.gameObject.GetComponent<Enemy.enemyUnit>();
-                            Searching = true;
-                            distance = Vector3.Distance(this.transform.position, atkUnit.gameObject.transform.position);
-                            break;
-                        }
-                        
+                            if (atkRange > 0)
+                            {
+                                aggerTarget = rangeColliders[i].gameObject.transform;
+                                atkUnit = aggerTarget.gameObject.GetComponent<Enemy.enemyUnit>();
+                                Searching = true;
+                                distance = Vector3.Distance(this.transform.position, atkUnit.gameObject.transform.position);
+                                break;
+                            }
 
 
-                    }
-                    else
-                    {
-                        if (airatkRange > 0)
-                        {
-                            aggerTarget = rangeColliders[i].gameObject.transform;
-                            atkUnit = aggerTarget.gameObject.GetComponent<Enemy.enemyUnit>();
-                            Searching = true;
-                            distance = Vector3.Distance(this.transform.position, atkUnit.gameObject.transform.position);
-                            break;
 
                         }
+                        else
+                        {
+                            if (airatkRange > 0)
+                            {
+
+                                aggerTarget = rangeColliders[i].gameObject.transform;
+                                atkUnit = aggerTarget.gameObject.GetComponent<Enemy.enemyUnit>();
+                                Searching = true;
+                                distance = Vector3.Distance(this.transform.position, atkUnit.gameObject.transform.position);
+                                break;
+
+                            }
+                        }
+
                     }
-                    
+
+                    Debug.Log("유닛탐색");
                 }
-                
-                Debug.Log("유닛탐색");
+            else atkUnit = null;
             }
-            }
+        }
+
+
             public void targetrange() {
 
             _mode = _Mode.Attack;
 
-
-            if (atkUnit)
+            if (atkUnit!=null)
             {
                 if (atkUnit.baseStats.ground == true)
                 {
                     if (distance < atkRange )
                     {
                         Debug.Log("범위 도달");
+                        PF.StopPathFind();
                         Attack();
                     }
                     else if (distance >= atkRange )
                     {
                         Debug.Log("쫓아가기");
                         MoveToAggroTarget();
-                        this.transform.forward = rangeColliders[0].gameObject.transform.position;
+                        this.transform.forward = atkUnit.gameObject.transform.position;
                     }
                 }
                 else { 
@@ -238,12 +237,14 @@ namespace Units.Player
                     if (distance < airatkRange)
                     {
                         Debug.Log("범위 도달2 ");
+                        PF.StopPathFind();
                         Attack();
                     }
                     else if(distance >= airatkRange)
                     {
+                      
                         MoveToAggroTarget();
-                        this.transform.forward = rangeColliders[0].gameObject.transform.position;
+                        this.transform.forward = atkUnit.gameObject.transform.position;
                     }
                 }
 
@@ -266,11 +267,15 @@ namespace Units.Player
             private void MoveToAggroTarget() //타겟을 찾으면 따라감
         {
             isAtking = false;
-            if (Searching)
+            if (atkUnit != null)
             {
-                StartCoroutine("ReSetTargetPos");
-                Debug.Log("123");
+                if (search)
+                {
+                    StartCoroutine("ReSetTargetPos");
+                    Debug.Log("123");
+                }
             }
+            
         }
 
         private void Attack()
@@ -351,11 +356,11 @@ namespace Units.Player
 
         IEnumerator ReSetTargetPos()
         {
-            Searching = false;
+            search = false;
             Debug.Log("코루틴");
             PF.ResetPathFind(aggerTarget.position);
             yield return new WaitForSeconds(0.5f);
-            Searching = true;
+            search =true;
         }
 
         public void B_UpattackCheck()
