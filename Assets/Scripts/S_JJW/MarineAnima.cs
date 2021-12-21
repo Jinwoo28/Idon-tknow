@@ -21,7 +21,7 @@ public class MarineAnima : MonoBehaviour
     {
         unitmode = (int)PU._mode;
 
-       
+        AnimaPlay();
     }
 
     public void AnimaPlay()
